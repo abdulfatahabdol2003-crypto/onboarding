@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bounties & Tasks - ONBOARD3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(57, 255, 20, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(57, 255, 20, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #39FF14 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .subtext {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #39FF14;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .xp-meter {
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #39FF14;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+            padding: 30px;
+            background: rgba(57, 255, 20, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: rgba(57, 255, 20, 0.1);
+            border-color: rgba(57, 255, 20, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: #39FF14;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #000000;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #39FF14;
+        }
+
+        .step p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Bounty Grid */
+        .filters {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            color: #39FF14;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #39FF14;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+
+        .bounty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .bounty-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bounty-card:hover {
+            border-color: #39FF14;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .bounty-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bounty-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #39FF14 0%, #2dd10d 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .bounty-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .bounty-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-reward {
+            background: rgba(57, 255, 20, 0.2);
+            color: #39FF14;
+        }
+
+        .badge-difficulty {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .badge-easy { border-left: 3px solid #39FF14; }
+        .badge-medium { border-left: 3px solid #ffa500; }
+        .badge-hard { border-left: 3px solid #ff4444; }
+
+        /* Quest Hub */
+        .quest-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quest-item {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .quest-item:hover {
+            border-color: #39FF14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
+        }
+
+        .quest-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .quest-xp {
+            color: #39FF14;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #39FF14 0%, #2dd10d 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        /* Progress Tracker */
+        .progress-tracker {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .progress-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(#39FF14 0% 90%, rgba(255, 255, 255, 0.1) 90% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            position: relative;
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.3);
+        }
+
+        .progress-inner {
+            width: 160px;
+            height: 160px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .progress-inner .xp-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #39FF14;
+        }
+
+        .levels {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .level {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .level-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 1.5rem;
+        }
+
+        .level.completed .level-icon {
+            background: #39FF14;
+            border-color: #39FF14;
+            color: #000000;
+        }
+
+        /* Leaderboard */
+        .leaderboard {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .leaderboard-item {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .leaderboard-item:hover {
+            border-color: #39FF14;
+            transform: translateX(5px);
+        }
+
+        .rank {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #39FF14;
+            min-width: 40px;
+        }
+
+        .rank.top3 {
+            color: #FFD700;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #39FF14, #2dd10d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #000000;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .user-info .role {
+            color: #39FF14;
+            font-size: 0.9rem;
+        }
+
+        /* Submit Form */
+        .submit-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #39FF14;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #39FF14;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(57, 255, 20, 0.2);
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #39FF14;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #39FF14;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #39FF14;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #39FF14;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtext {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .bounty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .levels {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-particles"></div>
+    <div class="grid-bg"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Complete Tasks. Earn Points.<br>Build Your Proof of Impact.</h1>
+            <p class="subtext">Every task you complete brings you closer to unlocking your Access Code and joining the ONBOARD3 Community.</p>
+            <div class="xp-meter">
+                <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(57, 255, 20, 0.1)" stroke-width="8"/>
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#39FF14" stroke-width="8" 
+                        stroke-dasharray="502" stroke-dashoffset="125" 
+                        style="animation: progressRotate 2s ease-in-out infinite; transform-origin: center;">
+                        <animate attributeName="stroke-dashoffset" from="502" to="125" dur="2s" fill="freeze"/>
+                    </circle>
+                    <text x="100" y="95" text-anchor="middle" fill="#39FF14" font-size="32" font-weight="800">XP</text>
+                    <text x="100" y="120" text-anchor="middle" fill="#ffffff" font-size="18">75%</text>
+                </svg>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('bounties').scrollIntoView({behavior: 'smooth'})">View Active Bounties</button>
+                <button class="btn btn-outline" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})">How It Works</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="how-it-works">
+                <h2 class="section-title">Learn. Build. Earn.</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">1</div>
+                        <h3>Pick a Bounty</h3>
+                        <p>Choose a task or quest that matches your skill level and interests.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">2</div>
+                        <h3>Complete & Submit</h3>
+                        <p>Do the work and prove your impact with tangible results.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">3</div>
+                        <h3>Earn XP / Rewards</h3>
+                        <p>Gain points, unlock new levels, and qualify for the Access Code.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn btn-primary" onclick="document.getElementById('bounties').scrollIntoView({behavior: 'smooth'})">Start Your First Bounty</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Bounties -->
+    <section id="bounties">
+        <div class="container">
+            <h2 class="section-title">Active Bounties</h2>
+            <p class="section-subtitle">Real tasks from ONBOARD3 and partner projects</p>
+            
+            <div class="filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Beginner</button>
+                <button class="filter-btn">Intermediate</button>
+                <button class="filter-btn">Advanced</button>
+                <button class="filter-btn">Community</button>
+            </div>
+
+            <div class="bounty-grid">
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">🎯</div>
+                        <div style="flex: 1;">
+                            <h3>Create an Explainer Thread</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Write a Twitter thread explaining ONBOARD3's mission and vision.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+50 XP</span>
+                        <span class="badge badge-difficulty badge-easy">Easy</span>
+                        <span class="badge" style="background: rgba(255, 255, 255, 0.1);">⏰ 3 days</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">💻</div>
+                        <div style="flex: 1;">
+                            <h3>Build a Smart Contract</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Develop a sample NFT minting contract for educational purposes.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+200 XP</span>
+                        <span class="badge badge-difficulty badge-hard">Hard</span>
+                        <span class="badge" style="background: rgba(255, 255, 255, 0.1);">⏰ 7 days</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">🎨</div>
+                        <div style="flex: 1;">
+                            <h3>Design Tutorial Graphics</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Create infographics for Web3 wallet setup guides.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+75 XP</span>
+                        <span class="badge badge-difficulty badge-medium">Medium</span>
+                        <span class="badge" style="background: rgba(255, 255, 255, 0.1);">⏰ 5 days</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">🎙️</div>
+                        <div style="flex: 1;">
+                            <h3>Host a Twitter Space</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Lead a discussion about Web3 onboarding challenges.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+100 XP</span>
+                        <span class="badge badge-difficulty badge-medium">Medium</span>
+                        <span class="badge" style="background: rgba(255, 255, 255, 0.1);">⏰ Flexible</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">📝</div>
+                        <div style="flex: 1;">
+                            <h3>Write Tutorial Article</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Create a beginner-friendly guide on using decentralized exchanges.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+80 XP</span>
+                        <span class="badge badge-difficulty badge-easy">Easy</span>
+                        <span class="badge" style="background: rgba(255, 255, 255, 0.1);">⏰ 4 days</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">🌐</div>
+                        <div style="flex: 1;">
+                            <h3>Translate Documentation</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Help translate ONBOARD3 guides into your native language.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+60 XP</span>
+                        <span class="badge badge-difficulty badge-easy">Easy</span>
+                        <span class="badge" style="background: rgba(255, 255, 255, 0.1);">⏰ 6 days</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quest Hub -->
+    <section id="quests" style="background: rgba(26, 26, 26, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Quests for Beginners</h2>
+            <p class="section-subtitle">If you're just getting started, these mini quests teach you while rewarding consistency.</p>
+
+            <div class="quest-list">
+                <div class="quest-item">
+                    <div class="quest-info">
+                        <h4>Create Your Wallet</h4>
+                        <p style="color: #b0b0b0; margin-bottom: 8px;">Set up your first Web3 wallet</p>
+                        <span class="quest-xp">+10 XP</span>
+                    </div>
+                    <button class="btn btn-primary">Start Quest</button>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-info">
+                        <h4>Join a Discord Server</h4>
+                        <p style="color: #b0b0b0; margin-bottom: 8px;">Connect with the ONBOARD3 community</p>
+                        <span class="quest-xp">+5 XP</span>
+                    </div>
+                    <button class="btn btn-primary">Start Quest</button>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-info">
+                        <h4>Post About ONBOARD3</h4>
+                        <p style="color: #b0b0b0; margin-bottom: 8px;">Share your journey on social media</p>
+                        <span class="quest-xp">+15 XP</span>
+                    </div>
+                    <button class="btn btn-primary">Start Quest</button>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-info">
+                        <h4>Test a Partner App</h4>
+                        <p style="color: #b0b0b0; margin-bottom: 8px;">Try out one of our partner platforms</p>
+                        <span class="quest-xp">+20 XP</span>
+                    </div>
+                    <button class="btn btn-primary">Start Quest</button>
+                </div>
+
+                <div class="quest-item">
+                    <div class="quest-info">
+                        <h4>Complete Your Profile</h4>
+                        <p style="color: #b0b0b0; margin-bottom: 8px;">Add your skills and interests</p>
+                        <span class="quest-xp">+8 XP</span>
+                    </div>
+                    <button class="btn btn-primary">Start Quest</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-outline">View All Quests →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section id="progress">
+        <div class="container">
+            <h2 class="section-title">Your Journey to Access</h2>
+            
+            <div class="progress-tracker">
+                <div class="progress-circle">
+                    <div class="progress-inner">
+                        <div class="xp-text">180</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">/ 200 XP</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.2rem; color: #b0b0b0; margin-bottom: 30px;">
+                    <strong style="color: #39FF14;">20 XP left</strong> to unlock your Access Code!
+                </p>
+
+                <div class="levels">
+                    <div class="level completed">
+                        <div class="level-icon">✓</div>
+                        <h4 style="color: #39FF14; margin-bottom: 5px;">Level 1</h4>
+                        <p style="color: #b0b0b0; font-size: 0.9rem;">Onboarded</p>
+                        <p style="color: #666; font-size: 0.85rem;">Completed 5 quests</p>
+                    </div>
+
+                    <div class="level completed">
+                        <div class="level-icon">✓</div>
+                        <h4 style="color: #39FF14; margin-bottom: 5px;">Level 2</h4>
+                        <p style="color: #b0b0b0; font-size: 0.9rem;">Contributor</p>
+                        <p style="color: #666; font-size: 0.85rem;">In Progress</p>
+                    </div>
+
+                    <div class="level">
+                        <div class="level-icon">🔒</div>
+                        <h4 style="color: #fff; margin-bottom: 5px;">Level 3</h4>
+                        <p style="color: #b0b0b0; font-size: 0.9rem;">Builder</p>
+                        <p style="color: #666; font-size: 0.85rem;">Earn Access Code</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline" style="margin-top: 30px;">View My Stats</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Bounties -->
+    <section style="background: rgba(26, 26, 26, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Partner Bounties</h2>
+            <p class="section-subtitle">Earn by helping our partners onboard users to their platforms</p>
+
+            <div class="bounty-grid">
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">🏦</div>
+                        <div style="flex: 1;">
+                            <h3>Create Onboarding Guide for WalletX</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Develop a comprehensive step-by-step guide for new WalletX users.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+150 XP + $50</span>
+                        <span class="badge badge-difficulty badge-medium">Medium</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(57, 255, 20, 0.1);">
+                        <img src="data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='30' height='30' rx='6' fill='%2339FF14'/%3E%3Cpath d='M15 8L20 15L15 22L10 15L15 8Z' fill='%23000'/%3E%3C/svg%3E" alt="Partner" style="width: 30px; height: 30px;">
+                        <span style="color: #39FF14; font-weight: 600;">WalletX</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">🎤</div>
+                        <div style="flex: 1;">
+                            <h3>Host a Space About ProjectY</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Lead an educational Twitter Space discussing ProjectY features.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+120 XP + 500 $PY</span>
+                        <span class="badge badge-difficulty badge-medium">Medium</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(57, 255, 20, 0.1);">
+                        <img src="data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%2339FF14'/%3E%3Ctext x='15' y='20' text-anchor='middle' fill='%23000' font-weight='bold' font-size='16'%3EPY%3C/text%3E%3C/svg%3E" alt="Partner" style="width: 30px; height: 30px;">
+                        <span style="color: #39FF14; font-weight: 600;">ProjectY</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+
+                <div class="bounty-card">
+                    <div class="bounty-header">
+                        <div class="bounty-icon">👥</div>
+                        <div style="flex: 1;">
+                            <h3>Refer 5 Users to ProtocolZ</h3>
+                        </div>
+                    </div>
+                    <p style="color: #b0b0b0; margin-bottom: 15px;">Bring new users to ProtocolZ and help them get started.</p>
+                    <div class="bounty-meta">
+                        <span class="badge badge-reward">+100 XP + 1000 $PZ</span>
+                        <span class="badge badge-difficulty badge-easy">Easy</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(57, 255, 20, 0.1);">
+                        <img src="data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='30' height='30' rx='15' fill='%2339FF14'/%3E%3Ccircle cx='15' cy='12' r='4' fill='%23000'/%3E%3Cpath d='M8 24C8 19 11 17 15 17C19 17 22 19 22 24' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Partner" style="width: 30px; height: 30px;">
+                        <span style="color: #39FF14; font-weight: 600;">ProtocolZ</span>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Apply Now</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-outline">See All Partner Bounties →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Work -->
+    <section id="submit">
+        <div class="container">
+            <h2 class="section-title">Submit Completed Tasks</h2>
+            <p class="section-subtitle">Once your task is done, submit proof to get XP and feedback</p>
+
+            <div class="submit-form">
+                <form>
+                    <div class="form-group">
+                        <label>Task Name</label>
+                        <input type="text" placeholder="Select or enter task name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Wallet Address</label>
+                        <input type="text" placeholder="0x..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof Link</label>
+                        <input type="url" placeholder="Tweet, GitHub, screenshot URL, etc." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes (Optional)</label>
+                        <textarea placeholder="Add any additional context or notes about your submission..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Task</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section style="background: rgba(26, 26, 26, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Top Earners of the Month</h2>
+            <p class="section-subtitle">Celebrating our most active builders and contributors</p>
+
+            <div class="leaderboard">
+                <div class="leaderboard-item">
+                    <div class="rank top3">👑 1</div>
+                    <div class="avatar">AK</div>
+                    <div class="user-info">
+                        <h4>Alex Kensington</h4>
+                        <p class="role">Full-Stack Dev</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">2,450 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">47 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank top3">🥈 2</div>
+                    <div class="avatar">SM</div>
+                    <div class="user-info">
+                        <h4>Sarah Martinez</h4>
+                        <p class="role">Content Creator</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">2,180 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">41 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank top3">🥉 3</div>
+                    <div class="avatar">JC</div>
+                    <div class="user-info">
+                        <h4>Jordan Chen</h4>
+                        <p class="role">Community Builder</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,995 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">38 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">4</div>
+                    <div class="avatar">MP</div>
+                    <div class="user-info">
+                        <h4>Maria Popov</h4>
+                        <p class="role">Designer</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,820 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">35 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">5</div>
+                    <div class="avatar">TN</div>
+                    <div class="user-info">
+                        <h4>Tyler Nguyen</h4>
+                        <p class="role">Smart Contract Dev</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,675 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">31 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">6</div>
+                    <div class="avatar">EP</div>
+                    <div class="user-info">
+                        <h4>Emma Patterson</h4>
+                        <p class="role">Writer</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,540 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">29 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">7</div>
+                    <div class="avatar">DL</div>
+                    <div class="user-info">
+                        <h4>David Lee</h4>
+                        <p class="role">Community Mod</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,420 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">27 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">8</div>
+                    <div class="avatar">RK</div>
+                    <div class="user-info">
+                        <h4>Rachel Kim</h4>
+                        <p class="role">Translator</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,310 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">25 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">9</div>
+                    <div class="avatar">MB</div>
+                    <div class="user-info">
+                        <h4>Marcus Brown</h4>
+                        <p class="role">Video Creator</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,205 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">23 tasks completed</div>
+                    </div>
+                </div>
+
+                <div class="leaderboard-item">
+                    <div class="rank">10</div>
+                    <div class="avatar">LW</div>
+                    <div class="user-info">
+                        <h4>Lisa Wang</h4>
+                        <p class="role">Builder</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #39FF14; font-weight: 800; font-size: 1.2rem;">1,150 XP</div>
+                        <div style="color: #b0b0b0; font-size: 0.9rem;">22 tasks completed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-tagline">Earn by Doing. Learn by Building.</div>
+            
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#community">Community</a>
+                <a href="#learn">Learn</a>
+                <a href="#partners">Partners</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="socials">
+                <a href="#" class="social-icon" title="X (Twitter)">𝕏</a>
+                <a href="#" class="social-icon" title="Lens">🌿</a>
+                <a href="#" class="social-icon" title="Discord">💬</a>
+                <a href="#" class="social-icon" title="Telegram">✈️</a>
+            </div>
+
+            <div class="copyright">
+                © 2025 ONBOARD3 — Building the Next Generation of Web3 Builders.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Smooth scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Task submitted successfully! You will receive feedback within 48 hours.');
+                form.reset();
+            });
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bounty-card, .quest-item, .leaderboard-item, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

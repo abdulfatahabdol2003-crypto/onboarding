@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRL Events - ONBOARD3</title>
+    <link rel="stylesheet" href="./css/head.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Space Grotesk', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(57, 255, 20, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(57, 255, 20, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 30s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #39FF14 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+            letter-spacing: -2px;
+        }
+
+        .hero .subtext {
+            font-size: 1.4rem;
+            color: #b0b0b0;
+            max-width: 750px;
+            margin-bottom: 45px;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #39FF14;
+            color: #000000;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 50px rgba(57, 255, 20, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #39FF14;
+            color: #39FF14;
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.3);
+        }
+
+        .btn-small {
+            padding: 12px 28px;
+            font-size: 0.95rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #39FF14;
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+        }
+
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .event-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid rgba(57, 255, 20, 0.2);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            border-color: #39FF14;
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #39FF14 0%, #2dd10d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #39FF14;
+            color: #000000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .event-content {
+            padding: 30px;
+        }
+
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-tagline {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .event-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: rgba(57, 255, 20, 0.15);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #39FF14;
+        }
+
+        .event-capacity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: rgba(57, 255, 20, 0.1);
+            border-radius: 8px;
+        }
+
+        .capacity-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .capacity-fill {
+            height: 100%;
+            background: #39FF14;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .event-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .event-actions .btn {
+            flex: 1;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: rgba(26, 26, 26, 0.95);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #ffffff;
+            font-size: 1.8rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: #39FF14;
+            color: #000000;
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            position: relative;
+        }
+
+        .modal-hero-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #39FF14;
+        }
+
+        .modal-section {
+            margin-bottom: 35px;
+        }
+
+        .modal-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #39FF14;
+        }
+
+        .modal-section p, .modal-section ul {
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-section ul li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .modal-section ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #39FF14;
+        }
+
+        .ticket-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .ticket-type {
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .ticket-type h4 {
+            color: #39FF14;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .ticket-type p {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        /* Auth Modal */
+        .auth-modal-content {
+            max-width: 500px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .auth-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #39FF14;
+            margin-bottom: 15px;
+        }
+
+        .auth-subtitle {
+            color: #b0b0b0;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .auth-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .auth-btn {
+            padding: 18px;
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 10px;
+            color: #39FF14;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .auth-btn:hover {
+            background: #39FF14;
+            color: #000000;
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
+        }
+
+        /* Past Events Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(135deg, #39FF14 20%, #2dd10d 80%);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #39FF14;
+        }
+
+        .gallery-stat {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        /* Host Event Form */
+        .host-form {
+            max-width: 800px;
+            margin: 60px auto;
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid rgba(57, 255, 20, 0.25);
+            border-radius: 20px;
+            padding: 50px 40px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #39FF14;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #39FF14;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .benefit-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b0b0b0;
+        }
+
+        .benefit-item::before {
+            content: '✓';
+            color: #39FF14;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        /* Waitlist Section */
+        .waitlist-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(26, 26, 26, 0.6);
+            border: 2px solid rgba(57, 255, 20, 0.2);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid rgba(57, 255, 20, 0.2);
+            padding: 60px 20px 35px;
+            text-align: center;
+        }
+
+        .footer-cta {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #39FF14;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(57, 255, 20, 0.1);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #39FF14;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #39FF14;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                padding: 30px 25px;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .ticket-types {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="network-bg"></div>
+    <div class="grid-bg"></div>
+     <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">
+                <div class="logo-icon">O3</div>
+                <span class="logo-text">ONBOARD3</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="/about.html" class="nav-link">About</a></li>
+                <li><a href="/irl.html" class="nav-link">Events</a></li>
+                <li><a href="/community.html" class="nav-link">Community</a></li>
+                <li><a href="/learn.html" class="nav-link">Partners</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="/auth.html" class="btn btn-secondary">User</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-menu">
+            <li><a href="/index.html" class="mobile-nav-link active">Home</a></li>
+            <li><a href="/about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="/irl.html" class="mobile-nav-link">Events</a></li>
+            <li><a href="/community.html" class="mobile-nav-link">Community</a></li>
+            <li><a href="/partner.html" class="mobile-nav-link">Partners</a></li>
+        </ul>
+        <div class="mobile-cta">
+            <a href="/auth.html" class="btn btn-primary">User</a>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>IRL Events — Meet. Build. Ship.</h1>
+            <p class="subtext">Global meetups, hands-on workshops, and hackathons that turn learning into real work.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('upcoming-events').scrollIntoView({behavior: 'smooth'})">See Upcoming Events</button>
+                <button class="btn btn-outline" onclick="document.getElementById('host-event').scrollIntoView({behavior: 'smooth'})">Host an Event</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="upcoming-events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+
+            <div class="events-grid">
+                <!-- Event Card 1 - Student Only -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🏗️</div>
+                        <span class="event-badge">Workshop</span>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Lagos — Builder Bootcamp</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">
+                                <span>📅</span>
+                                <span>Nov 15, 2025 • 10:00 AM WAT</span>
+                            </div>
+                            <div class="event-meta-item">
+                                <span>📍</span>
+                                <span>CcHUB, Yaba, Lagos</span>
+                            </div>
+                        </div>
+                        <p class="event-tagline">3-day intensive smart contract development bootcamp for verified students.</p>
+                        <div class="event-tags">
+                            <span class="tag">Student Only</span>
+                            <span class="tag">Hands-on</span>
+                            <span class="tag">Solidity</span>
+                        </div>
+                        <div class="event-capacity">
+                            <span style="font-size: 0.9rem; color: #39FF14;">64/80 seats</span>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-outline btn-small" onclick="openEventModal('cairo-nft')">Details</button>
+                            <button class="btn btn-primary btn-small" onclick="quickRSVP('Cairo NFT Creation Lab')">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🌍</div>
+                        <span class="event-badge" style="background: #fff; color: #000;">Meetup</span>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Johannesburg — Web3 Social</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">
+                                <span>📅</span>
+                                <span>Dec 15, 2025 • 5:30 PM SAST</span>
+                            </div>
+                            <div class="event-meta-item">
+                                <span>📍</span>
+                                <span>Workshop17, Johannesburg</span>
+                            </div>
+                        </div>
+                        <p class="event-tagline">Casual meetup for Web3 enthusiasts, builders, and curious newcomers.</p>
+                        <div class="event-tags">
+                            <span class="tag">Public</span>
+                            <span class="tag">Social</span>
+                            <span class="tag">Free Snacks</span>
+                        </div>
+                        <div class="event-capacity">
+                            <span style="font-size: 0.9rem; color: #39FF14;">37/75 seats</span>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 49%;"></div>
+                            </div>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-outline btn-small" onclick="openEventModal('jhb-social')">Details</button>
+                            <button class="btn btn-primary btn-small" onclick="quickRSVP('Johannesburg Web3 Social')">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">💻</div>
+                        <span class="event-badge">Workshop</span>
+                    </div>
+                    <div class="event-content">
+                        <h3 class="event-title">Kigali — dApp Development</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">
+                                <span>📅</span>
+                                <span>Jan 5, 2026 • 9:00 AM CAT</span>
+                            </div>
+                            <div class="event-meta-item">
+                                <span>📍</span>
+                                <span>kLab, Kigali</span>
+                            </div>
+                        </div>
+                        <p class="event-tagline">Build your first decentralized application with hands-on mentorship.</p>
+                        <div class="event-tags">
+                            <span class="tag">Student Only</span>
+                            <span class="tag">Technical</span>
+                            <span class="tag">Beginner-Friendly</span>
+                        </div>
+                        <div class="event-capacity">
+                            <span style="font-size: 0.9rem; color: #39FF14;">22/60 seats</span>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill" style="width: 37%;"></div>
+                            </div>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-outline btn-small" onclick="openEventModal('kigali-dapp')">Details</button>
+                            <button class="btn btn-primary btn-small" onclick="openAuthModal('Kigali dApp Development')">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events Gallery -->
+    <section style="background: rgba(26, 26, 26, 0.2);">
+        <div class="container">
+            <h2 class="section-title">Past Events & Highlights</h2>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #39FF14 20%, #2dd10d 80%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🎓</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Lagos Blockchain Summit 2024</div>
+                        <div class="gallery-stat">250 attendees • 15 projects launched</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #2dd10d 20%, #39FF14 80%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🚀</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Nairobi Hackathon '24</div>
+                        <div class="gallery-stat">120 builders trained • $20K in prizes</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #39FF14 30%, #1a8a0a 80%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🤝</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Accra Developer Meetup</div>
+                        <div class="gallery-stat">85 developers • 30+ collaborations formed</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #1a8a0a 20%, #39FF14 80%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">⚡</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Cairo Web3 Workshop</div>
+                        <div class="gallery-stat">60 students certified • 100% satisfaction</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #39FF14 40%, #2dd10d 90%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🌟</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Pan-African Builder Summit</div>
+                        <div class="gallery-stat">500+ attendees • 12 countries</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #2dd10d 30%, #1a8a0a 80%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🎯</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Johannesburg DeFi Deep Dive</div>
+                        <div class="gallery-stat">75 participants • Advanced protocols explored</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host an Event -->
+    <section id="host-event">
+        <div class="container">
+            <h2 class="section-title">Host or Sponsor an ONBOARD3 Event</h2>
+
+            <div class="host-form">
+                <div class="benefit-list">
+                    <div class="benefit-item">Access to verified students</div>
+                    <div class="benefit-item">Live onboarding integration</div>
+                    <div class="benefit-item">Branding at event</div>
+                    <div class="benefit-item">Custom quest campaigns</div>
+                    <div class="benefit-item">Post-event analytics</div>
+                    <div class="benefit-item">Community amplification</div>
+                </div>
+
+                <form id="hostForm">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" placeholder="Full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Organization *</label>
+                        <input type="text" placeholder="Company or project name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Event Type *</label>
+                        <select required>
+                            <option value="">Select event type</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="meetup">Meetup</option>
+                            <option value="conference">Conference</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Expected Attendees *</label>
+                        <select required>
+                            <option value="">Select range</option>
+                            <option value="20-50">20-50 people</option>
+                            <option value="50-100">50-100 people</option>
+                            <option value="100-200">100-200 people</option>
+                            <option value="200+">200+ people</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Goals & Description *</label>
+                        <textarea placeholder="Tell us about your event vision, objectives, and what you hope to achieve..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact Email *</label>
+                        <input type="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Host Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section style="background: rgba(26, 26, 26, 0.2);">
+        <div class="container">
+            <h2 class="section-title">Join the Waitlist</h2>
+
+            <div class="waitlist-container">
+                <p style="color: #b0b0b0; margin-bottom: 35px; font-size: 1.1rem;">Be the first to know about events in your city. Get early access to tickets and exclusive opportunities.</p>
+
+                <form id="waitlistForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Wallet Address (Optional)">
+                    </div>
+
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Area of Interest</option>
+                            <option value="dev">Development</option>
+                            <option value="creator">Content Creation</option>
+                            <option value="community">Community Building</option>
+                            <option value="design">Design</option>
+                            <option value="all">All of the Above</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Preferred City</option>
+                            <option value="lagos">Lagos</option>
+                            <option value="nairobi">Nairobi</option>
+                            <option value="accra">Accra</option>
+                            <option value="cairo">Cairo</option>
+                            <option value="johannesburg">Johannesburg</option>
+                            <option value="kigali">Kigali</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Join Waitlist</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-cta">Ready to join a Builder Meetup?</div>
+            <div class="footer-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('upcoming-events').scrollIntoView({behavior: 'smooth'})">See Events</button>
+                <button class="btn btn-outline" onclick="alert('Access Code application coming soon!')">Apply for Access Code</button>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#learn">Learn</a>
+                <a href="#community">Community</a>
+                <a href="#bounties">Bounties</a>
+                <a href="#partners">Partners</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="socials">
+                <a href="#" class="social-icon" title="X (Twitter)">𝕏</a>
+                <a href="#" class="social-icon" title="Lens Protocol">🌿</a>
+                <a href="#" class="social-icon" title="Discord">💬</a>
+                <a href="#" class="social-icon" title="Telegram">✈️</a>
+            </div>
+
+            <div class="copyright">
+                © 2025 ONBOARD3 — Onboard. Educate. Build.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-modal-content">
+            <button class="modal-close" onclick="closeAuthModal()">×</button>
+            <h2 class="auth-title">Verification Required</h2>
+            <p class="auth-subtitle">This event requires Student verification. Please connect your wallet or login to continue.</p>
+            <div class="auth-options">
+                <button class="auth-btn" onclick="connectWallet()">
+                    <span>🔗</span>
+                    <span>Connect Wallet</span>
+                </button>
+                <button class="auth-btn" onclick="emailLogin()">
+                    <span>📧</span>
+                    <span>Login with Email</span>
+                </button>
+                <button class="auth-btn" onclick="enterAccessCode()">
+                    <span>🔑</span>
+                    <span>Enter Access Code</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Detail Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">×</button>
+            <div class="modal-header">
+                <div class="modal-hero-image" style="background: linear-gradient(135deg, #39FF14 20%, #2dd10d 80%); display: flex; align-items: center; justify-content: center; font-size: 6rem;">🏗️</div>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle">Lagos — Builder Bootcamp</h2>
+                
+                <div class="modal-section">
+                    <h3>Overview</h3>
+                    <p>An intensive 3-day bootcamp designed to take you from Web3 beginner to confident smart contract developer. Learn Solidity, deploy contracts, and build real-world dApps with hands-on mentorship from industry experts.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Agenda</h3>
+                    <ul>
+                        <li><strong>Day 1:</strong> Blockchain fundamentals, Solidity basics, and development environment setup</li>
+                        <li><strong>Day 2:</strong> Smart contract patterns, testing, and security best practices</li>
+                        <li><strong>Day 3:</strong> Build and deploy your first dApp, final presentations, and networking</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Speakers & Mentors</h3>
+                    <ul>
+                        <li>Chioma Okafor - Lead Blockchain Engineer at Polygon</li>
+                        <li>David Chen - Smart Contract Auditor</li>
+                        <li>Amara Nwosu - DeFi Protocol Founder</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Location</h3>
+                    <p>📍 CcHUB, 294 Herbert Macaulay Way, Yaba, Lagos, Nigeria</p>
+                    <p style="margin-top: 10px;"><a href="#" style="color: #39FF14;">View on Google Maps →</a></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>Basic programming knowledge (JavaScript preferred)</li>
+                        <li>Laptop with development environment</li>
+                        <li>Verified ONBOARD3 Student status</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Ticket Types</h3>
+                    <div class="ticket-types">
+                        <div class="ticket-type">
+                            <h4>Public</h4>
+                            <p>General admission<br><strong>Waitlist Only</strong></p>
+                        </div>
+                        <div class="ticket-type">
+                            <h4>Student</h4>
+                            <p>Verified students only<br><strong>Free • 16 seats left</strong></p>
+                        </div>
+                        <div class="ticket-type">
+                            <h4>Partner</h4>
+                            <p>Sponsor invitations<br><strong>By invite</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 40px;">
+                    <button class="btn btn-outline" onclick="alert('Added to calendar!')">📅 Add to Calendar</button>
+                    <button class="btn btn-primary" style="flex: 1;" onclick="openAuthModal('Event from Modal')">RSVP Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentEventName = '';
+
+        // Auth Modal Functions
+        function openAuthModal(eventName) {
+            currentEventName = eventName;
+            document.getElementById('authModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function connectWallet() {
+            alert('Connecting wallet...\n\nIn production, this would trigger MetaMask or WalletConnect integration.');
+            closeAuthModal();
+            setTimeout(() => {
+                alert(`✓ Wallet connected!\n\nYou're registered for: ${currentEventName}\n\nConfirmation sent to your email.`);
+            }, 1000);
+        }
+
+        function emailLogin() {
+            const email = prompt('Enter your email address:');
+            if (email && email.includes('@')) {
+                closeAuthModal();
+                alert(`✓ Login link sent to ${email}\n\nCheck your inbox to complete registration for: ${currentEventName}`);
+            }
+        }
+
+        function enterAccessCode() {
+            const code = prompt('Enter your ONBOARD3 Access Code:');
+            if (code) {
+                closeAuthModal();
+                alert(`✓ Access Code verified!\n\nYou're registered for: ${currentEventName}\n\nSee you at the event!`);
+            }
+        }
+
+        // Quick RSVP for Public Events
+        function quickRSVP(eventName) {
+            const name = prompt(`RSVP for ${eventName}\n\nEnter your name:`);
+            if (name) {
+                const email = prompt('Enter your email:');
+                if (email && email.includes('@')) {
+                    alert(`✓ You're registered for ${eventName}!\n\nConfirmation sent to ${email}`);
+                }
+            }
+        }
+
+        // Event Detail Modal Functions
+        function openEventModal(eventId) {
+            document.getElementById('eventModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEventModal() {
+            document.getElementById('eventModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Form submissions
+        document.getElementById('hostForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest in hosting an event!\n\nOur team will review your request and get back to you within 48 hours.');
+            this.reset();
+        });
+
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✓ You\'re on the waitlist!\n\nWe\'ll notify you when events are announced in your area.');
+            this.reset();
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.event-card, .gallery-item').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            scrollObserver.observe(el);
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="./js//head.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONBOARD3 Community - Builders, Learners & Earners</title>
+    <link rel="stylesheet" href="/css/head.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #39FF14;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+            animation: nodePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        .network-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4), transparent);
+            transform-origin: left center;
+            animation: lineFlow 4s linear infinite;
+        }
+
+        @keyframes lineFlow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #39FF14);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtext {
+            font-size: 1.25rem;
+            color: #b0b0b0;
+            margin-bottom: 2.5rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .btn-primary {
+            background: #39FF14;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #39FF14;
+            color: #39FF14;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #39FF14);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.3), transparent);
+            margin: 4rem 0;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .benefit-card:hover::before {
+            left: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: #39FF14;
+            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #39FF14;
+        }
+
+        .benefit-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Access Timeline */
+        .access-timeline {
+            max-width: 900px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(57, 255, 20, 0.2);
+            z-index: 0;
+        }
+
+        .timeline-progress {
+            height: 100%;
+            width: 0;
+            background: #39FF14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+            animation: timelineProgress 3s ease-out forwards;
+        }
+
+        @keyframes timelineProgress {
+            to { width: 100%; }
+        }
+
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .step-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+            animation: stepAppear 0.6s ease-out backwards;
+        }
+
+        .timeline-step:nth-child(1) .step-circle { animation-delay: 0.2s; }
+        .timeline-step:nth-child(2) .step-circle { animation-delay: 0.4s; }
+        .timeline-step:nth-child(3) .step-circle { animation-delay: 0.6s; }
+
+        @keyframes stepAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .step-circle:hover {
+            border-color: #39FF14;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+            transform: scale(1.1);
+        }
+
+        .timeline-step h3 {
+            font-size: 1.3rem;
+            color: #39FF14;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-step p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Tier Cards */
+        .tiers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tier-card {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.05), rgba(20, 20, 20, 0.9));
+            border: 2px solid rgba(57, 255, 20, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.1), transparent 70%);
+            animation: tierGlow 4s linear infinite;
+        }
+
+        @keyframes tierGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+            border-color: #39FF14;
+            box-shadow: 0 15px 50px rgba(57, 255, 20, 0.3);
+        }
+
+        .tier-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tier-card h3 {
+            font-size: 1.8rem;
+            color: #39FF14;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tier-card p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tier-progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(10, 10, 10, 0.8);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tier-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #39FF14, #28cc10);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Leaderboard */
+        .leaderboard {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 60px 2fr 1fr 1fr 1fr;
+            padding: 1.5rem;
+            background: rgba(57, 255, 20, 0.1);
+            font-weight: 600;
+            color: #39FF14;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        .leaderboard-row {
+            display: grid;
+            grid-template-columns: 60px 2fr 1fr 1fr 1fr;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.1);
+            transition: all 0.3s ease;
+            animation: rowSlide 0.6s ease-out backwards;
+        }
+
+        .leaderboard-row:nth-child(2) { animation-delay: 0.1s; }
+        .leaderboard-row:nth-child(3) { animation-delay: 0.2s; }
+        .leaderboard-row:nth-child(4) { animation-delay: 0.3s; }
+        .leaderboard-row:nth-child(5) { animation-delay: 0.4s; }
+        .leaderboard-row:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes rowSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .leaderboard-row:hover {
+            background: rgba(57, 255, 20, 0.05);
+            transform: translateX(5px);
+        }
+
+        .rank {
+            font-weight: 700;
+            color: #39FF14;
+        }
+
+        .name {
+            color: #ffffff;
+        }
+
+        .role {
+            color: #888;
+        }
+
+        .xp, .impact {
+            font-weight: 600;
+            color: #39FF14;
+        }
+
+        /* Partners Grid */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 3rem;
+            background: rgba(20, 20, 20, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+        }
+
+        .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(57, 255, 20, 0.05);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 12px;
+            font-size: 1.2rem;
+            color: #39FF14;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .partner-logo:hover {
+            background: rgba(57, 255, 20, 0.1);
+            border-color: #39FF14;
+            box-shadow: 0 5px 20px rgba(57, 255, 20, 0.2);
+        }
+
+        /* Waitlist Form */
+        .waitlist-section {
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.05), rgba(10, 10, 10, 0.9));
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waitlist-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(57, 255, 20, 0.1), transparent 70%);
+            animation: bgPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .waitlist-form {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #39FF14;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #39FF14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(57, 255, 20, 0.2);
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #39FF14;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #39FF14;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #39FF14;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #39FF14;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+
+        .footer-note {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .timeline-steps { flex-direction: column; gap: 2rem; }
+            .timeline-line { display: none; }
+            .leaderboard-header, .leaderboard-row {
+                grid-template-columns: 40px 2fr 80px 80px;
+                font-size: 0.85rem;
+            }
+            .role { display: none; }
+        }
+    </style>
+</head>
+<body>
+     <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">O3</div>
+                <span class="logo-text">ONBOARD3</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="/about.html" class="nav-link">About</a></li>
+                <li><a href="/irl.html" class="nav-link">Events</a></li>
+                <li><a href="/community.html" class="nav-link">Community</a></li>
+                <li><a href="/learn.html" class="nav-link">Partners</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="/auth.html" class="btn btn-secondary">User</a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-menu">
+            <li><a href="/index.html" class="mobile-nav-link active">Home</a></li>
+            <li><a href="/about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="/irl.html" class="mobile-nav-link">Events</a></li>
+            <li><a href="/community.html" class="mobile-nav-link">Community</a></li>
+            <li><a href="/partner.html" class="mobile-nav-link">Partners</a></li>
+        </ul>
+        <div class="mobile-cta">
+            <a href="#login" class="btn btn-secondary">Login</a>
+            <a href="#signup" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="network-bg" id="networkBg"></div>
+        <div class="container hero-content">
+            <h1>A Community of Learners, Builders & Earners.</h1>
+            <p class="hero-subtext">The ONBOARD3 community is where education meets opportunity. Get mentorship, access bounties, collaborate, and grow with the next generation of Web3 talent.</p>
+            <div class="btn-group">
+                <button class="btn btn-primary">Apply for Access Code</button>
+                <button class="btn btn-secondary">View Student Path</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Inside ONBOARD3 -->
+    <section id="benefits">
+        <div class="container">
+            <h2 class="section-title">What You Get as a Member</h2>
+            <p class="section-subtitle">Everything you need to learn, build, and grow in Web3.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>Private Classes</h3>
+                    <p>Get trained by experienced mentors in exclusive learning sessions designed to accelerate your Web3 journey.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Job Board</h3>
+                    <p>Access real Web3 job opportunities and tasks from verified projects looking for talented builders.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Bounties & Quests</h3>
+                    <p>Earn XP and rewards for contributing to the ecosystem and completing meaningful tasks.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Builder Pods</h3>
+                    <p>Team up with other builders to collaborate, test ideas, and ship projects together.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Mentorship Access</h3>
+                    <p>Get 1:1 and group mentorship from verified builders who've been where you are.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>IRL Meetups</h3>
+                    <p>Join exclusive events and hackathons to connect with the community in person.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- How Access Works -->
+    <section id="access">
+        <div class="container">
+            <h2 class="section-title">Access is Earned — Not Bought.</h2>
+            
+            <div class="access-timeline">
+                <div class="timeline-line">
+                    <div class="timeline-progress"></div>
+                </div>
+                <div class="timeline-steps">
+                    <div class="timeline-step">
+                        <div class="step-circle">📚</div>
+                        <h3>Learn & Onboard</h3>
+                        <p>Complete basic quests to gain XP and understand Web3 fundamentals.</p>
+                    </div>
+                    
+                    <div class="timeline-step">
+                        <div class="step-circle">⚡</div>
+                        <h3>Prove Impact</h3>
+                        <p>Contribute, create, or help others in the community to build credibility.</p>
+                    </div>
+                    
+                    <div class="timeline-step">
+                        <div class="step-circle">🔑</div>
+                        <h3>Earn Your Code</h3>
+                        <p>Receive a personal Access Code to unlock the private community.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-primary">Earn Your Access Code →</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Member Tiers -->
+    <section id="tiers">
+        <div class="container">
+            <h2 class="section-title">Your Growth Path</h2>
+            <p class="section-subtitle">The more you contribute, the higher your level — and the more opportunities unlock.</p>
+            
+            <div class="tiers-container">
+                <div class="tier-card">
+                    <div class="tier-icon">🔹</div>
+                    <h3>Explorer</h3>
+                    <p>Just starting out; access to public quests and learning materials.</p>
+                    <div class="tier-progress">
+                        <div class="tier-progress-bar" style="width: 30%"></div>
+                    </div>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-icon">🔸</div>
+                    <h3>Builder</h3>
+                    <p>Has an Access Code; can join private classes, bounties, and mentorship.</p>
+                    <div class="tier-progress">
+                        <div class="tier-progress-bar" style="width: 65%"></div>
+                    </div>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-icon">💎</div>
+                    <h3>Innovator</h3>
+                    <p>Top contributor; access to exclusive job roles, sponsorships, and team projects.</p>
+                    <div class="tier-progress">
+                        <div class="tier-progress-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard">
+        <div class="container">
+            <h2 class="section-title">Top Builders This Month</h2>
+            <p class="section-subtitle">See the most consistent learners and contributors in ONBOARD3.</p>
+            
+            <div class="leaderboard">
+                <div class="leaderboard-header">
+                    <div>Rank</div>
+                    <div>Name</div>
+                    <div>Role</div>
+                    <div>XP</div>
+                    <div>Impact</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">1</div>
+                    <div class="name">Alex Chen</div>
+                    <div class="role">Developer</div>
+                    <div class="xp">2,450</div>
+                    <div class="impact">98</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">2</div>
+                    <div class="name">Sarah Williams</div>
+                    <div class="role">Builder</div>
+                    <div class="xp">2,280</div>
+                    <div class="impact">95</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">3</div>
+                    <div class="name">Marcus Johnson</div>
+                    <div class="role">Creator</div>
+                    <div class="xp">2,150</div>
+                    <div class="impact">92</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">4</div>
+                    <div class="name">Elena Rodriguez</div>
+                    <div class="role">Developer</div>
+                    <div class="xp">1,980</div>
+                    <div class="impact">89</div>
+                </div>
+                <div class="leaderboard-row">
+                    <div class="rank">5</div>
+                    <div class="name">David Kim</div>
+                    <div class="role">Builder</div>
+                    <div class="xp">1,820</div>
+                    <div class="impact">86</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Partners -->
+    <section id="partners">
+        <div class="container">
+            <h2 class="section-title">Powered by Our Partners</h2>
+            <p class="section-subtitle">We onboard new users into Web3 through our partner ecosystems.</p>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">Partner 1</div>
+                <div class="partner-logo">Partner 2</div>
+                <div class="partner-logo">Partner 3</div>
+                <div class="partner-logo">Partner 4</div>
+                <div class="partner-logo">Partner 5</div>
+                <div class="partner-logo">Partner 6</div>
+                <div class="partner-logo">Partner 7</div>
+                <div class="partner-logo">Partner 8</div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; color: #b0b0b0;">
+                Interested in partnering with ONBOARD3 to onboard users into your app? → <a href="#" style="color: #39FF14; text-decoration: none; font-weight: 600;">Contact us</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section class="waitlist-section">
+        <div class="waitlist-bg"></div>
+        <div class="container">
+            <h2 class="section-title">Ready to Earn Your Code?</h2>
+            <p class="section-subtitle">Start completing onboarding quests and move closer to joining the ONBOARD3 private community.</p>
+            
+            <form class="waitlist-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Web3 Wallet Address (Optional)</label>
+                    <input type="text" placeholder="0x...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Area of Interest</label>
+                    <select required>
+                        <option value="">Select your focus area</option>
+                        <option value="developer">Developer</option>
+                        <option value="community">Community Builder</option>
+                        <option value="creator">Content Creator</option>
+                        <option value="marketer">Marketer</option>
+                        <option value="bd">BD & Collab Manager</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary form-submit">Join Waitlist</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-tagline">Onboard. Educate. Build.</div>
+            
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Learn</a>
+                <a href="#">Partners</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon">𝕏</a>
+                <a href="#" class="social-icon">L</a>
+                <a href="#" class="social-icon">T</a>
+                <a href="#" class="social-icon">D</a>
+            </div>
+            
+            <p class="footer-note">© 2025 ONBOARD3 — Building the Next Generation of Web3 Builders.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create animated network background
+        function createNetworkBackground() {
+            const networkBg = document.getElementById('networkBg');
+            const nodeCount = 15;
+            const nodes = [];
+            
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'network-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                networkBg.appendChild(node);
+                nodes.push(node);
+            }
+            
+            // Create connecting lines
+            for (let i = 0; i < nodeCount; i++) {
+                for (let j = i + 1; j < nodeCount; j++) {
+                    if (Math.random() > 0.7) {
+                        const line = document.createElement('div');
+                        line.className = 'network-line';
+                        
+                        const node1 = nodes[i];
+                        const node2 = nodes[j];
+                        
+                        const x1 = parseFloat(node1.style.left);
+                        const y1 = parseFloat(node1.style.top);
+                        const x2 = parseFloat(node2.style.left);
+                        const y2 = parseFloat(node2.style.top);
+                        
+                        const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                        
+                        line.style.width = distance + 'vw';
+                        line.style.left = x1 + '%';
+                        line.style.top = y1 + '%';
+                        line.style.transform = `rotate(${angle}deg)`;
+                        line.style.animationDelay = Math.random() * 4 + 's';
+                        
+                        networkBg.appendChild(line);
+                    }
+                }
+            }
+        }
+        
+        createNetworkBackground();
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Button interactions
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.type !== 'submit') {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+        
+        // Form submission
+        document.querySelector('.waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for joining the waitlist! We\'ll be in touch soon.');
+            this.reset();
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.benefit-card, .tier-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Animate tier progress bars when visible
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.tier-progress-bar');
+                    if (progressBar) {
+                        const width = progressBar.style.width;
+                        progressBar.style.width = '0';
+                        setTimeout(() => {
+                            progressBar.style.width = width;
+                        }, 100);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.tier-card').forEach(el => {
+            progressObserver.observe(el);
+        });
+    </script>
+    <script src="./js/head.js"></script>
+</body>
+</html>
