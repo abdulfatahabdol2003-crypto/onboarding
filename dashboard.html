@@ -1336,12 +1336,11 @@
             }
         }
 
-        // Initial load
         window.addEventListener('load', () => {
             loadSection('dashboard');
         });
 
-        // Close modal on outside click
+
         document.getElementById('bountyModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
