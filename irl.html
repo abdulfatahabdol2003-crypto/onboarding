@@ -52,6 +52,8 @@
             100% { transform: translate(50px, 50px); }
         }
 
+
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -61,37 +63,39 @@
         }
 
         /* Hero Section */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-            position: relative;
-        }
+     .hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+}
 
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, #ffffff 0%, #39FF14 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease;
-            letter-spacing: -2px;
-        }
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #ffffff 0%, #39FF14 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease;
+  letter-spacing: -2px;
+}
 
-        .hero .subtext {
-            font-size: 1.4rem;
-            color: #b0b0b0;
-            max-width: 750px;
-            margin-bottom: 45px;
-            line-height: 1.7;
-            animation: fadeInUp 1s ease;
-        }
+.hero .subtext {
+  font-size: 1.4rem;
+  color: #b0b0b0;
+  max-width: 750px;
+  margin: 0 auto 45px; 
+  line-height: 1.7;
+  text-align: center;  
+  animation: fadeInUp 1s ease;
+}
+
 
         .hero-buttons {
             display: flex;
@@ -749,7 +753,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="/about.html" class="nav-link">About</a></li>
                 <li><a href="/irl.html" class="nav-link">Events</a></li>
-                <li><a href="/community.html" class="nav-link">Community</a></li>
+                <!-- <li><a href="/community.html" class="nav-link">Community</a></li> -->
                 <li><a href="/learn.html" class="nav-link">Partners</a></li>
             </ul>
 
@@ -770,7 +774,7 @@
             <li><a href="/index.html" class="mobile-nav-link active">Home</a></li>
             <li><a href="/about.html" class="mobile-nav-link">About</a></li>
             <li><a href="/irl.html" class="mobile-nav-link">Events</a></li>
-            <li><a href="/community.html" class="mobile-nav-link">Community</a></li>
+            <!-- <li><a href="/community.html" class="mobile-nav-link">Community</a></li> -->
             <li><a href="/partner.html" class="mobile-nav-link">Partners</a></li>
         </ul>
         <div class="mobile-cta">
@@ -780,7 +784,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>IRL Events — Meet. Build. Ship.</h1>
+            <h1>IRL Events <br> Meet. Build. Ship.</h1>
             <p class="subtext">Global meetups, hands-on workshops, and hackathons that turn learning into real work.</p>
             <div class="hero-buttons">
                 <button class="btn btn-primary" onclick="document.getElementById('upcoming-events').scrollIntoView({behavior: 'smooth'})">See Upcoming Events</button>
@@ -832,79 +836,7 @@
                     </div>
                 </div>
 
-                <!-- Event Card 5 -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🌍</div>
-                        <span class="event-badge" style="background: #fff; color: #000;">Meetup</span>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">Johannesburg — Web3 Social</h3>
-                        <div class="event-meta">
-                            <div class="event-meta-item">
-                                <span>📅</span>
-                                <span>Dec 15, 2025 • 5:30 PM SAST</span>
-                            </div>
-                            <div class="event-meta-item">
-                                <span>📍</span>
-                                <span>Workshop17, Johannesburg</span>
-                            </div>
-                        </div>
-                        <p class="event-tagline">Casual meetup for Web3 enthusiasts, builders, and curious newcomers.</p>
-                        <div class="event-tags">
-                            <span class="tag">Public</span>
-                            <span class="tag">Social</span>
-                            <span class="tag">Free Snacks</span>
-                        </div>
-                        <div class="event-capacity">
-                            <span style="font-size: 0.9rem; color: #39FF14;">37/75 seats</span>
-                            <div class="capacity-bar">
-                                <div class="capacity-fill" style="width: 49%;"></div>
-                            </div>
-                        </div>
-                        <div class="event-actions">
-                            <button class="btn btn-outline btn-small" onclick="openEventModal('jhb-social')">Details</button>
-                            <button class="btn btn-primary btn-small" onclick="quickRSVP('Johannesburg Web3 Social')">RSVP</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event Card 6 -->
-                <div class="event-card">
-                    <div class="event-image">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem;">💻</div>
-                        <span class="event-badge">Workshop</span>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">Kigali — dApp Development</h3>
-                        <div class="event-meta">
-                            <div class="event-meta-item">
-                                <span>📅</span>
-                                <span>Jan 5, 2026 • 9:00 AM CAT</span>
-                            </div>
-                            <div class="event-meta-item">
-                                <span>📍</span>
-                                <span>kLab, Kigali</span>
-                            </div>
-                        </div>
-                        <p class="event-tagline">Build your first decentralized application with hands-on mentorship.</p>
-                        <div class="event-tags">
-                            <span class="tag">Student Only</span>
-                            <span class="tag">Technical</span>
-                            <span class="tag">Beginner-Friendly</span>
-                        </div>
-                        <div class="event-capacity">
-                            <span style="font-size: 0.9rem; color: #39FF14;">22/60 seats</span>
-                            <div class="capacity-bar">
-                                <div class="capacity-fill" style="width: 37%;"></div>
-                            </div>
-                        </div>
-                        <div class="event-actions">
-                            <button class="btn btn-outline btn-small" onclick="openEventModal('kigali-dapp')">Details</button>
-                            <button class="btn btn-primary btn-small" onclick="openAuthModal('Kigali dApp Development')">RSVP</button>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -918,8 +850,8 @@
                 <div class="gallery-item">
                     <div class="gallery-image" style="background: linear-gradient(135deg, #39FF14 20%, #2dd10d 80%); display: flex; align-items: center; justify-content: center; font-size: 4rem;">🎓</div>
                     <div class="gallery-overlay">
-                        <div class="gallery-title">Lagos Blockchain Summit 2024</div>
-                        <div class="gallery-stat">250 attendees • 15 projects launched</div>
+                        <div class="gallery-title">Crypto Moo Hangout</div>
+                        <div class="gallery-stat">50 attendees • 1 projects launched</div>
                     </div>
                 </div>
 
@@ -1088,7 +1020,6 @@
             <div class="footer-cta">Ready to join a Builder Meetup?</div>
             <div class="footer-buttons">
                 <button class="btn btn-primary" onclick="document.getElementById('upcoming-events').scrollIntoView({behavior: 'smooth'})">See Events</button>
-                <button class="btn btn-outline" onclick="alert('Access Code application coming soon!')">Apply for Access Code</button>
             </div>
 
             <div class="footer-links">

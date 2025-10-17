@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONBOARD3 Community - Builders, Learners & Earners</title>
     <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -152,6 +153,20 @@
             border-color: #39FF14;
             color: #39FF14;
         }
+      
+  .benefit-icon i,
+  .step-circle i {
+    color: #39FF14;
+    font-size: 2rem; 
+  }
+
+
+  .benefit-icon,
+  .step-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
         /* Section Styles */
         section {
@@ -706,101 +721,102 @@
             <h1>A Community of Learners, Builders & Earners.</h1>
             <p class="hero-subtext">The ONBOARD3 community is where education meets opportunity. Get mentorship, access bounties, collaborate, and grow with the next generation of Web3 talent.</p>
             <div class="btn-group">
-                <button class="btn btn-primary">Apply for Access Code</button>
-                <button class="btn btn-secondary">View Student Path</button>
+                <button class="btn btn-primary" onclick="window.location.href='/auth.html'">
+  Apply for a Course
+</button>
             </div>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- Inside ONBOARD3 -->
-    <section id="benefits">
-        <div class="container">
-            <h2 class="section-title">What You Get as a Member</h2>
-            <p class="section-subtitle">Everything you need to learn, build, and grow in Web3.</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎓</div>
-                    <h3>Private Classes</h3>
-                    <p>Get trained by experienced mentors in exclusive learning sessions designed to accelerate your Web3 journey.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">💼</div>
-                    <h3>Job Board</h3>
-                    <p>Access real Web3 job opportunities and tasks from verified projects looking for talented builders.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Bounties & Quests</h3>
-                    <p>Earn XP and rewards for contributing to the ecosystem and completing meaningful tasks.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">👥</div>
-                    <h3>Builder Pods</h3>
-                    <p>Team up with other builders to collaborate, test ideas, and ship projects together.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧠</div>
-                    <h3>Mentorship Access</h3>
-                    <p>Get 1:1 and group mentorship from verified builders who've been where you are.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌍</div>
-                    <h3>IRL Meetups</h3>
-                    <p>Join exclusive events and hackathons to connect with the community in person.</p>
-                </div>
-            </div>
+
+
+<section id="benefits">
+  <div class="container">
+    <h2 class="section-title">What You Get as a Member</h2>
+    <p class="section-subtitle">Everything you need to learn, build, and grow in Web3.</p>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Private Classes</h3>
+        <p>Get trained by experienced mentors in exclusive learning sessions designed to accelerate your Web3 journey.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-people-arrows"></i></div>
+        <h3>Linking Talent with Projects</h3>
+        <p>Connect skilled builders and creators with projects seeking talent — collaborate, earn, and grow together.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Bounties & Quests</h3>
+        <p>Earn XP and rewards for contributing to the ecosystem and completing meaningful tasks.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-users"></i></div>
+        <h3>Builder Pods</h3>
+        <p>Team up with other builders to collaborate, test ideas, and ship projects together.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+        <h3>Mentorship Access</h3>
+        <p>Get 1:1 and group mentorship from verified builders who've been where you are.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+        <h3>IRL Meetups</h3>
+        <p>Join exclusive events and hackathons to connect with the community in person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- <section id="access">
+  <div class="container">
+    <h2 class="section-title">Access is Earned — Not Bought.</h2>
+    
+    <div class="access-timeline">
+      <div class="timeline-line">
+        <div class="timeline-progress"></div>
+      </div>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="step-circle"><i class="fas fa-book-open"></i></div>
+          <h3>Learn & Onboard</h3>
+          <p>Complete basic quests to gain XP and understand Web3 fundamentals.</p>
         </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- How Access Works -->
-    <section id="access">
-        <div class="container">
-            <h2 class="section-title">Access is Earned — Not Bought.</h2>
-            
-            <div class="access-timeline">
-                <div class="timeline-line">
-                    <div class="timeline-progress"></div>
-                </div>
-                <div class="timeline-steps">
-                    <div class="timeline-step">
-                        <div class="step-circle">📚</div>
-                        <h3>Learn & Onboard</h3>
-                        <p>Complete basic quests to gain XP and understand Web3 fundamentals.</p>
-                    </div>
-                    
-                    <div class="timeline-step">
-                        <div class="step-circle">⚡</div>
-                        <h3>Prove Impact</h3>
-                        <p>Contribute, create, or help others in the community to build credibility.</p>
-                    </div>
-                    
-                    <div class="timeline-step">
-                        <div class="step-circle">🔑</div>
-                        <h3>Earn Your Code</h3>
-                        <p>Receive a personal Access Code to unlock the private community.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <button class="btn btn-primary">Earn Your Access Code →</button>
-            </div>
+        
+        <div class="timeline-step">
+          <div class="step-circle"><i class="fas fa-bolt"></i></div>
+          <h3>Prove Impact</h3>
+          <p>Contribute, create, or help others in the community to build credibility.</p>
         </div>
-    </section>
+        
+        <div class="timeline-step">
+          <div class="step-circle"><i class="fas fa-key"></i></div>
+          <h3>Earn Your Code</h3>
+          <p>Receive a personal Access Code to unlock the private community.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <button class="btn btn-primary">Earn Your Access Code →</button>
+    </div>
+  </div>
+</section> -->
 
-    <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
 
-    <!-- Member Tiers -->
+    <!-- Member Tiers
     <section id="tiers">
         <div class="container">
             <h2 class="section-title">Your Growth Path</h2>
@@ -835,9 +851,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <div class="divider"></div>
+    <!-- <div class="divider"></div> -->
 
     <!-- Leaderboard -->
     <section id="leaderboard">
@@ -902,13 +918,6 @@
             
             <div class="partners-grid">
                 <div class="partner-logo">Partner 1</div>
-                <div class="partner-logo">Partner 2</div>
-                <div class="partner-logo">Partner 3</div>
-                <div class="partner-logo">Partner 4</div>
-                <div class="partner-logo">Partner 5</div>
-                <div class="partner-logo">Partner 6</div>
-                <div class="partner-logo">Partner 7</div>
-                <div class="partner-logo">Partner 8</div>
             </div>
             
             <p style="text-align: center; margin-top: 2rem; color: #b0b0b0;">
@@ -921,7 +930,7 @@
     <section class="waitlist-section">
         <div class="waitlist-bg"></div>
         <div class="container">
-            <h2 class="section-title">Ready to Earn Your Code?</h2>
+            <h2 class="section-title">Ready to Join the Next Class?</h2>
             <p class="section-subtitle">Start completing onboarding quests and move closer to joining the ONBOARD3 private community.</p>
             
             <form class="waitlist-form">
@@ -963,15 +972,15 @@
             <div class="footer-tagline">Onboard. Educate. Build.</div>
             
             <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">Learn</a>
-                <a href="#">Partners</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact</a>
+                <a href="/index.html">Home</a>
+                <a href="/learn.html">Learn</a>
+                <a href="/partner.html">Partners</a>
+                <a href="blog.html">Blog</a>
+                <a href="/contact.html">Contact</a>
             </div>
             
             <div class="social-icons">
-                <a href="#" class="social-icon">𝕏</a>
+                <a href="https://x.com/onboard3__" class="social-icon">𝕏</a>
                 <a href="#" class="social-icon">L</a>
                 <a href="#" class="social-icon">T</a>
                 <a href="#" class="social-icon">D</a>
