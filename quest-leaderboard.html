@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bounties - ONBOARD3</title>
+    <title>Quest Leaderboard - ONBOARD3</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/dashboard.css">
+      <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
     <div class="grid-bg"></div>
@@ -27,7 +27,7 @@
                     <i class="fas fa-trophy"></i>
                     <span>Quests</span>
                 </a>
-                <a href="quest-leaderboard.html" class="menu-item">
+                <a href="quest-leaderboard.html" class="menu-item active">
                     <i class="fas fa-chart-line"></i>
                     <span>Quest Leaderboard</span>
                 </a>
@@ -35,7 +35,7 @@
                     <i class="fas fa-graduation-cap"></i>
                     <span>Learn (Apply)</span>
                 </a>
-                <a href="bounties.html" class="menu-item active">
+                <a href="bounties.html" class="menu-item">
                     <i class="fas fa-briefcase"></i>
                     <span>Bounties</span>
                 </a>
@@ -67,13 +67,13 @@
             <header class="header">
                 <div class="header-content">
                     <div class="header-title">
-                        <h2>Bounties 💼</h2>
-                        <p>Complete bounties and earn USDC rewards</p>
+                        <h2>Quest Leaderboard 📊</h2>
+                        <p>Top builders ranked by XP earned</p>
                     </div>
                     <div class="header-stats">
                         <div class="stat-badge">
-                            <i class="fas fa-dollar-sign" style="color: #39FF14;"></i>
-                            <span>$450 Earned</span>
+                            <i class="fas fa-medal" style="color: #39FF14;"></i>
+                            <span>Your Rank: #47</span>
                         </div>
                     </div>
                 </div>
@@ -82,145 +82,88 @@
             <div class="content">
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="fas fa-briefcase"></i> Available Bounties</h3>
-                    </div>
-                    <div class="bounty-item" onclick="openBountyModal('Build a Multi-Sig Wallet', '1000')">
-                        <div class="bounty-header">
-                            <div>
-                                <div class="bounty-title">Build a Multi-Sig Wallet</div>
-                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Create a secure multi-signature wallet contract with frontend</p>
-                            </div>
-                            <span class="bounty-reward">1000 USDC</span>
-                        </div>
-                        <span class="bounty-status status-active">Open - Click to Submit</span>
-                    </div>
-                    <div class="bounty-item" onclick="openBountyModal('Write NFT Tutorial Series', '500')">
-                        <div class="bounty-header">
-                            <div>
-                                <div class="bounty-title">Write NFT Tutorial Series</div>
-                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Create comprehensive NFT development guides (5 articles)</p>
-                            </div>
-                            <span class="bounty-reward">500 USDC</span>
-                        </div>
-                        <span class="bounty-status status-active">Open - Click to Submit</span>
-                    </div>
-                    <div class="bounty-item" onclick="openBountyModal('Community Discord Moderator', '300')">
-                        <div class="bounty-header">
-                            <div>
-                                <div class="bounty-title">Community Discord Moderator</div>
-                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Help manage and grow our community (Monthly)</p>
-                            </div>
-                            <span class="bounty-reward">300 USDC/mo</span>
-                        </div>
-                        <span class="bounty-status status-active">Open - Click to Submit</span>
-                    </div>
-                    <div class="bounty-item" onclick="openBountyModal('Design Landing Page', '400')">
-                        <div class="bounty-header">
-                            <div>
-                                <div class="bounty-title">Design Landing Page</div>
-                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Create modern landing page design for new product launch</p>
-                            </div>
-                            <span class="bounty-reward">400 USDC</span>
-                        </div>
-                        <span class="bounty-status status-active">Open - Click to Submit</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3><i class="fas fa-clock"></i> My Submissions</h3>
-                    </div>
-                    <div class="bounty-item">
-                        <div class="bounty-header">
-                            <div>
-                                <div class="bounty-title">Technical Documentation</div>
-                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Submitted 3 days ago</p>
-                            </div>
-                            <span class="bounty-reward">200 USDC</span>
-                        </div>
-                        <span class="bounty-status status-submitted">Under Review</span>
-                    </div>
-                    <div class="bounty-item">
-                        <div class="bounty-header">
-                            <div>
-                                <div class="bounty-title">Token Swap Interface</div>
-                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Submitted 1 week ago</p>
-                            </div>
-                            <span class="bounty-reward">500 USDC</span>
-                        </div>
-                        <span class="bounty-status status-submitted">Under Review</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3><i class="fas fa-trophy"></i> Recent Winners</h3>
+                        <h3><i class="fas fa-chart-line"></i> Quest Leaderboard - Top Builders</h3>
                     </div>
                     <div class="leaderboard-item gold">
                         <div class="leaderboard-rank">
-                            <span class="rank-number">🏆</span>
+                            <span class="rank-number">🥇</span>
                             <div class="user-info">
-                                <h4>DeFi_Master</h4>
-                                <p>Won: DeFi Dashboard Build - 2000 USDC</p>
+                                <h4>CryptoWizard_0x1</h4>
+                                <p>15 quests completed</p>
                             </div>
                         </div>
-                        <span style="color: #39FF14; font-size: 0.85rem;">2 days ago</span>
+                        <span style="color: #39FF14; font-weight: 700; font-size: 1.2rem;">2,450 XP</span>
                     </div>
-                    <div class="leaderboard-item">
+                    <div class="leaderboard-item silver">
                         <div class="leaderboard-rank">
-                            <span class="rank-number">🏆</span>
+                            <span class="rank-number">🥈</span>
                             <div class="user-info">
                                 <h4>BlockBuilder_42</h4>
-                                <p>Won: Smart Contract Audit - 1500 USDC</p>
+                                <p>12 quests completed</p>
                             </div>
                         </div>
-                        <span style="color: #39FF14; font-size: 0.85rem;">5 days ago</span>
+                        <span style="color: #39FF14; font-weight: 700; font-size: 1.2rem;">1,980 XP</span>
+                    </div>
+                    <div class="leaderboard-item bronze">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number">🥉</span>
+                            <div class="user-info">
+                                <h4>DeFi_Master</h4>
+                                <p>10 quests completed</p>
+                            </div>
+                        </div>
+                        <span style="color: #39FF14; font-weight: 700; font-size: 1.2rem;">1,650 XP</span>
                     </div>
                     <div class="leaderboard-item">
                         <div class="leaderboard-rank">
-                            <span class="rank-number">🏆</span>
+                            <span class="rank-number" style="color: #888;">4</span>
                             <div class="user-info">
                                 <h4>Web3_Ninja</h4>
-                                <p>Won: Technical Blog Series - 800 USDC</p>
+                                <p>9 quests completed</p>
                             </div>
                         </div>
-                        <span style="color: #39FF14; font-size: 0.85rem;">1 week ago</span>
+                        <span style="color: #39FF14; font-weight: 700;">1,420 XP</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number" style="color: #888;">5</span>
+                            <div class="user-info">
+                                <h4>SmartContract_Dev</h4>
+                                <p>8 quests completed</p>
+                            </div>
+                        </div>
+                        <span style="color: #39FF14; font-weight: 700;">1,200 XP</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number" style="color: #888;">6</span>
+                            <div class="user-info">
+                                <h4>NFT_Creator_X</h4>
+                                <p>7 quests completed</p>
+                            </div>
+                        </div>
+                        <span style="color: #39FF14; font-weight: 700;">980 XP</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number" style="color: #888;">7</span>
+                            <div class="user-info">
+                                <h4>DAO_Builder</h4>
+                                <p>6 quests completed</p>
+                            </div>
+                        </div>
+                        <span style="color: #39FF14; font-weight: 700;">850 XP</span>
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center; color: #888; border-top: 2px solid rgba(57,255,20,0.2); margin-top: 1rem;">
+                        <strong style="color: #39FF14; font-size: 1.1rem;">Your Rank: #47</strong> with 342 XP
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Keep completing quests to climb the leaderboard!</p>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Bounty Submission Modal -->
-    <div class="modal" id="bountyModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-paper-plane"></i> Submit Bounty</h3>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <form id="bountySubmissionForm">
-                <div class="form-group">
-                    <label>Bounty Title</label>
-                    <input type="text" id="bountyTitle" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Submission Link *</label>
-                    <input type="url" id="submissionLink" placeholder="https://github.com/yourproject" required>
-                </div>
-                <div class="form-group">
-                    <label>Description *</label>
-                    <textarea id="submissionDescription" placeholder="Describe your submission and how it fulfills the bounty requirements..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Additional Links (Optional)</label>
-                    <input type="url" id="additionalLinks" placeholder="Demo, documentation, etc.">
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Bounty</button>
-            </form>
-        </div>
-    </div>
-
-        <script>// User data
+       <script>// User data
 const userData = {
     username: 'Builder_0x4A2',
     isStudent: true,

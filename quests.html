@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONBOARD3 Dashboard</title>
+    <title>Quests - ONBOARD3</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <link rel="stylesheet" href="./css/dashboard.css">
+   <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
     <div class="grid-bg"></div>
@@ -19,11 +19,11 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="index.html" class="menu-item active">
+                <a href="index.html" class="menu-item">
                     <i class="fas fa-home"></i>
                     <span>Dashboard Overview</span>
                 </a>
-                <a href="quests.html" class="menu-item">
+                <a href="quests.html" class="menu-item active">
                     <i class="fas fa-trophy"></i>
                     <span>Quests</span>
                 </a>
@@ -67,133 +67,86 @@
             <header class="header">
                 <div class="header-content">
                     <div class="header-title">
-                        <h2>Welcome back, Builder_0x4A2 👋</h2>
-                        <p>Track your learning, bounties, and progress.</p>
+                        <h2>Quests 🏆</h2>
+                        <p>Complete quests to earn XP and unlock rewards</p>
                     </div>
                     <div class="header-stats">
                         <div class="stat-badge">
-                            <i class="fas fa-graduation-cap" style="color: #39FF14;"></i>
-                            <span>Student</span>
+                            <i class="fas fa-star" style="color: #39FF14;"></i>
+                            <span>342 XP</span>
                         </div>
                         <div class="stat-badge">
-                            <i class="fas fa-dollar-sign" style="color: #39FF14;"></i>
-                            <span>$450 USDC</span>
-                        </div>
-                        <div class="stat-badge">
-                            <div class="status-dot"></div>
-                            <span>Wallet Connected</span>
+                            <i class="fas fa-trophy" style="color: #39FF14;"></i>
+                            <span>Rank #47</span>
                         </div>
                     </div>
                 </div>
             </header>
 
             <div class="content">
-                <div class="card xp-card">
-                    <div class="xp-info">
-                        <h3>XP Progress</h3>
-                        <span class="xp-value">342 / 500 XP</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 68.4%"></div>
-                    </div>
-                    <p class="progress-label">Next Access Code at 500 XP</p>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-chart-line"></i> Quest Rank</h3>
-                        </div>
-                        <div style="text-align: center; padding: 1rem;">
-                            <div style="font-size: 3rem; color: #39FF14; font-weight: 700;">#47</div>
-                            <p style="color: #888; margin-top: 0.5rem;">Out of 500 builders</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-medal"></i> Bounty Rank</h3>
-                        </div>
-                        <div style="text-align: center; padding: 1rem;">
-                            <div style="font-size: 3rem; color: #39FF14; font-weight: 700;">#23</div>
-                            <p style="color: #888; margin-top: 0.5rem;">Top performer</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-wallet"></i> USDC Balance</h3>
-                        </div>
-                        <div style="text-align: center; padding: 1rem;">
-                            <div style="font-size: 2.5rem; color: #39FF14; font-weight: 700;">$450</div>
-                            <p style="color: #888; margin-top: 0.5rem;">Available to withdraw</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-trophy"></i> Active Quests</h3>
-                        </div>
-                        <div class="quest-item">
-                            <div class="quest-header">
-                                <span class="quest-title">Web3 Fundamentals</span>
-                                <span class="quest-reward">50 XP</span>
-                            </div>
-                            <div class="quest-progress">
-                                <div class="quest-progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="quest-item">
-                            <div class="quest-header">
-                                <span class="quest-title">Smart Contract Basics</span>
-                                <span class="quest-reward">100 XP</span>
-                            </div>
-                            <div class="quest-progress">
-                                <div class="quest-progress-fill" style="width: 40%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-briefcase"></i> My Bounties</h3>
-                        </div>
-                        <div class="bounty-item">
-                            <div class="bounty-header">
-                                <span class="bounty-title">Build Token Swap Interface</span>
-                                <span class="bounty-reward">500 USDC</span>
-                            </div>
-                            <span class="bounty-status status-active">In Progress</span>
-                        </div>
-                        <div class="bounty-item">
-                            <div class="bounty-header">
-                                <span class="bounty-title">Technical Documentation</span>
-                                <span class="bounty-reward">200 USDC</span>
-                            </div>
-                            <span class="bounty-status status-submitted">Under Review</span>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="fas fa-graduation-cap"></i> Course Status</h3>
+                        <h3><i class="fas fa-trophy"></i> Available Quests</h3>
                     </div>
-                    <div class="bounty-item">
-                        <div class="bounty-header">
-                            <span class="bounty-title">Content Creation</span>
-                            <span class="status-badge status-approved">✓ Admitted</span>
+                    <div class="quest-item">
+                        <div class="quest-header">
+                            <div>
+                                <div class="quest-title">Blockchain Fundamentals</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Master the basics of blockchain technology</p>
+                            </div>
+                            <span class="quest-reward">100 XP</span>
                         </div>
-                        <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Applied: 2025-09-15</p>
+                        <div class="quest-progress">
+                            <div class="quest-progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="bounty-item">
-                        <div class="bounty-header">
-                            <span class="bounty-title">Community Management</span>
-                            <span class="status-badge status-pending">⏳ Pending</span>
+                    <div class="quest-item">
+                        <div class="quest-header">
+                            <div>
+                                <div class="quest-title">Smart Contract Development</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Learn Solidity and build your first dApp</p>
+                            </div>
+                            <span class="quest-reward">200 XP</span>
                         </div>
-                        <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Applied: 2025-10-01</p>
+                        <div class="quest-progress">
+                            <div class="quest-progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="quest-item">
+                        <div class="quest-header">
+                            <div>
+                                <div class="quest-title">DeFi Protocol Design</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Deep dive into DeFi mechanics and security</p>
+                            </div>
+                            <span class="quest-reward">300 XP</span>
+                        </div>
+                        <div class="quest-progress">
+                            <div class="quest-progress-fill" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <div class="quest-item">
+                        <div class="quest-header">
+                            <div>
+                                <div class="quest-title">NFT Marketplace Build</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Create a full-stack NFT marketplace</p>
+                            </div>
+                            <span class="quest-reward">500 XP</span>
+                        </div>
+                        <div class="quest-progress">
+                            <div class="quest-progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="quest-item">
+                        <div class="quest-header">
+                            <div>
+                                <div class="quest-title">Web3 Security Basics</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Learn to identify and prevent common vulnerabilities</p>
+                            </div>
+                            <span class="quest-reward">150 XP</span>
+                        </div>
+                        <div class="quest-progress">
+                            <div class="quest-progress-fill" style="width: 0%"></div>
+                        </div>
                     </div>
                 </div>
             </div>

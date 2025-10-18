@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONBOARD3 Dashboard</title>
+    <title>Events - ONBOARD3</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      <link rel="stylesheet" href="./css/dashboard.css">
@@ -19,7 +19,7 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="index.html" class="menu-item active">
+                <a href="index.html" class="menu-item">
                     <i class="fas fa-home"></i>
                     <span>Dashboard Overview</span>
                 </a>
@@ -43,7 +43,7 @@
                     <i class="fas fa-medal"></i>
                     <span>Bounty Leaderboard</span>
                 </a>
-                <a href="events.html" class="menu-item">
+                <a href="events.html" class="menu-item active">
                     <i class="fas fa-calendar"></i>
                     <span>Events</span>
                 </a>
@@ -67,140 +67,108 @@
             <header class="header">
                 <div class="header-content">
                     <div class="header-title">
-                        <h2>Welcome back, Builder_0x4A2 👋</h2>
-                        <p>Track your learning, bounties, and progress.</p>
-                    </div>
-                    <div class="header-stats">
-                        <div class="stat-badge">
-                            <i class="fas fa-graduation-cap" style="color: #39FF14;"></i>
-                            <span>Student</span>
-                        </div>
-                        <div class="stat-badge">
-                            <i class="fas fa-dollar-sign" style="color: #39FF14;"></i>
-                            <span>$450 USDC</span>
-                        </div>
-                        <div class="stat-badge">
-                            <div class="status-dot"></div>
-                            <span>Wallet Connected</span>
-                        </div>
+                        <h2>Events 📅</h2>
+                        <p>Join upcoming events, hackathons, and meetups</p>
                     </div>
                 </div>
             </header>
 
             <div class="content">
-                <div class="card xp-card">
-                    <div class="xp-info">
-                        <h3>XP Progress</h3>
-                        <span class="xp-value">342 / 500 XP</span>
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-calendar"></i> Upcoming Events</h3>
                     </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 68.4%"></div>
-                    </div>
-                    <p class="progress-label">Next Access Code at 500 XP</p>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-chart-line"></i> Quest Rank</h3>
-                        </div>
-                        <div style="text-align: center; padding: 1rem;">
-                            <div style="font-size: 3rem; color: #39FF14; font-weight: 700;">#47</div>
-                            <p style="color: #888; margin-top: 0.5rem;">Out of 500 builders</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-medal"></i> Bounty Rank</h3>
-                        </div>
-                        <div style="text-align: center; padding: 1rem;">
-                            <div style="font-size: 3rem; color: #39FF14; font-weight: 700;">#23</div>
-                            <p style="color: #888; margin-top: 0.5rem;">Top performer</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-wallet"></i> USDC Balance</h3>
-                        </div>
-                        <div style="text-align: center; padding: 1rem;">
-                            <div style="font-size: 2.5rem; color: #39FF14; font-weight: 700;">$450</div>
-                            <p style="color: #888; margin-top: 0.5rem;">Available to withdraw</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-trophy"></i> Active Quests</h3>
-                        </div>
-                        <div class="quest-item">
-                            <div class="quest-header">
-                                <span class="quest-title">Web3 Fundamentals</span>
-                                <span class="quest-reward">50 XP</span>
+                    <div class="bounty-item">
+                        <div style="display: flex; gap: 1rem; align-items: start;">
+                            <div style="text-align: center; background: rgba(57,255,20,0.1); padding: 0.8rem; border-radius: 12px; min-width: 60px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #39FF14;">20</div>
+                                <div style="font-size: 0.75rem; color: #888;">NOV</div>
                             </div>
-                            <div class="quest-progress">
-                                <div class="quest-progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="quest-item">
-                            <div class="quest-header">
-                                <span class="quest-title">Smart Contract Basics</span>
-                                <span class="quest-reward">100 XP</span>
-                            </div>
-                            <div class="quest-progress">
-                                <div class="quest-progress-fill" style="width: 40%"></div>
+                            <div style="flex: 1;">
+                                <div class="bounty-title">DeFi Hackathon 2025</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">48-hour virtual hackathon with $50K in prizes</p>
+                                <p style="color: #666; font-size: 0.8rem; margin: 0.5rem 0;"><i class="fas fa-globe"></i> Virtual Event</p>
+                                <p style="color: #666; font-size: 0.8rem;"><i class="fas fa-trophy"></i> Prize Pool: $50,000 USDC</p>
+                                <span class="bounty-status status-active">Coming Soon</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-briefcase"></i> My Bounties</h3>
-                        </div>
-                        <div class="bounty-item">
-                            <div class="bounty-header">
-                                <span class="bounty-title">Build Token Swap Interface</span>
-                                <span class="bounty-reward">500 USDC</span>
+                    <div class="bounty-item">
+                        <div style="display: flex; gap: 1rem; align-items: start;">
+                            <div style="text-align: center; background: rgba(57,255,20,0.1); padding: 0.8rem; border-radius: 12px; min-width: 60px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #39FF14;">01</div>
+                                <div style="font-size: 0.75rem; color: #888;">DEC</div>
                             </div>
-                            <span class="bounty-status status-active">In Progress</span>
-                        </div>
-                        <div class="bounty-item">
-                            <div class="bounty-header">
-                                <span class="bounty-title">Technical Documentation</span>
-                                <span class="bounty-reward">200 USDC</span>
+                            <div style="flex: 1;">
+                                <div class="bounty-title">Smart Contract Security Workshop</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Learn best practices for secure smart contract development</p>
+                                <p style="color: #666; font-size: 0.8rem; margin: 0.5rem 0;"><i class="fas fa-video"></i> Online Workshop</p>
+                                <p style="color: #666; font-size: 0.8rem;"><i class="fas fa-clock"></i> 4:00 PM - 7:00 PM WAT</p>
+                                <span class="bounty-status status-active">Register Now</span>
                             </div>
-                            <span class="bounty-status status-submitted">Under Review</span>
+                        </div>
+                    </div>
+                    <div class="bounty-item">
+                        <div style="display: flex; gap: 1rem; align-items: start;">
+                            <div style="text-align: center; background: rgba(57,255,20,0.1); padding: 0.8rem; border-radius: 12px; min-width: 60px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #39FF14;">10</div>
+                                <div style="font-size: 0.75rem; color: #888;">DEC</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <div class="bounty-title">NFT Art Exhibition</div>
+                                <p style="color: #888; font-size: 0.85rem; margin: 0.5rem 0;">Showcase your NFT art and connect with collectors</p>
+                                <p style="color: #666; font-size: 0.8rem; margin: 0.5rem 0;"><i class="fas fa-map-marker-alt"></i> Art Gallery, Lekki</p>
+                                <p style="color: #666; font-size: 0.8rem;"><i class="fas fa-clock"></i> 5:00 PM - 9:00 PM</p>
+                                <span class="bounty-status status-active">Submit Artwork</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="fas fa-graduation-cap"></i> Course Status</h3>
+                        <h3><i class="fas fa-check-circle"></i> My Registered Events</h3>
                     </div>
                     <div class="bounty-item">
                         <div class="bounty-header">
-                            <span class="bounty-title">Content Creation</span>
-                            <span class="status-badge status-approved">✓ Admitted</span>
+                            <div>
+                                <div class="bounty-title">Web3 Builder Meetup - Lagos</div>
+                                <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">October 20, 2025 • 2:00 PM</p>
+                            </div>
+                            <span class="status-badge status-approved">✓ Registered</span>
                         </div>
-                        <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Applied: 2025-09-15</p>
+                        <p style="color: #39FF14; font-size: 0.9rem; margin-top: 1rem;"><i class="fas fa-ticket-alt"></i> Your ticket has been sent to your email</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-history"></i> Past Events</h3>
                     </div>
                     <div class="bounty-item">
                         <div class="bounty-header">
-                            <span class="bounty-title">Community Management</span>
-                            <span class="status-badge status-pending">⏳ Pending</span>
+                            <div>
+                                <div class="bounty-title">Web3 Onboarding Workshop</div>
+                                <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">September 15, 2025</p>
+                            </div>
+                            <span class="status-badge" style="background: rgba(100,100,100,0.2); color: #888;">Completed</span>
                         </div>
-                        <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Applied: 2025-10-01</p>
+                    </div>
+                    <div class="bounty-item">
+                        <div class="bounty-header">
+                            <div>
+                                <div class="bounty-title">Smart Contract Bootcamp</div>
+                                <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">August 20, 2025</p>
+                            </div>
+                            <span class="status-badge" style="background: rgba(100,100,100,0.2); color: #888;">Completed</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script>// User data
+           <script>// User data
 const userData = {
     username: 'Builder_0x4A2',
     isStudent: true,
@@ -308,5 +276,3 @@ function attachFormListeners() {
         });
     }
 }</script>
-</body>
-</html>
