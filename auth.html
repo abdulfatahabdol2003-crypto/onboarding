@@ -92,8 +92,8 @@
                     </div>
                 </div>
 
-                <!-- <button class="submit-btn" onclick="handleLogin()">Login</button> -->
-                 <a href="/dashboard.html" class="btn btn-primary">Dashboard Demo</a>
+               <button class="submit-btn" onclick="handleLogin()">Login</button>
+                 
 
                 <div class="link-section">
                     <a href="#" class="forgot-link">Forgot Password?</a>
@@ -260,6 +260,10 @@
                 window.location.href = '/dashboard';
             }, 2000);
         }
+        function handleLogin() {
+    // You can add your login validation logic here if needed
+    window.location.href = "dashboard.html";
+}
     </script>
     <script src="./js/head.js"></script>
 </body>

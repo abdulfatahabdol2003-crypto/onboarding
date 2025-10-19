@@ -98,7 +98,9 @@ body {
     font-size: 1.2rem;
     width: 24px;
 }
-
+option{
+    color: black;
+}
 .menu-item span {
     font-size: 0.95rem;
     font-weight: 500;

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Details - ONBOARD3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h1>ONBOARD3</h1>
+                <p>Web3 Builder Hub</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="quests.html" class="menu-item active">
+                    <i class="fas fa-trophy"></i>
+                    <span>Quests</span>
+                </a>
+                <a href="quest-leaderboard.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Quest Rank</span>
+                </a>
+                <a href="learn.html" class="menu-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="bounties.html" class="menu-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Bounties</span>
+                </a>
+                <a href="bounty-leaderboard.html" class="menu-item">
+                    <i class="fas fa-medal"></i>
+                    <span>Bounty Rank</span>
+                </a>
+                <a href="events.html" class="menu-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Events</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="menu-item logout" onclick="handleLogout(event)">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>v1.0 — Powered by</p>
+                <p class="version">ONBOARD3</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-content">
+                    <div class="header-title">
+                        <a href="quests.html" style="color: #39FF14; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                            <i class="fas fa-arrow-left"></i> Back to Quests
+                        </a>
+                        <h2>Onboard3 Official Quest/h2>
+                        <p>Perform Social Media Task to Earn</p>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-badge">
+                            <i class="fas fa-star" style="color: #39FF14;"></i>
+                            <span>300 USDC Reward</span>
+                        </div>
+                        <div class="stat-badge">
+                            <i class="fas fa-tasks" style="color: #39FF14;"></i>
+                            <span>3/5 Tasks</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content">
+                <!-- Quest Progress Overview -->
+                <div class="card xp-card">
+                    <div class="xp-info">
+                        <h3>Quest Progress</h3>
+                        <span class="xp-value">60% Complete</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 60%"></div>
+                    </div>
+                    <p class="progress-label">Complete all 5 tasks to earn 200 XP</p>
+                </div>
+
+                <!-- Quest Description -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-info-circle"></i> Quest Description</h3>
+                    </div>
+                    <p style="color: #ccc; line-height: 1.6; margin-bottom: 1rem;">
+                        Dive into the world of smart contract development with Solidity. This quest will guide you through the fundamentals of writing, deploying, and interacting with smart contracts on the Ethereum blockchain. You'll build a complete dApp from scratch and learn industry best practices.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <div style="background: rgba(57,255,20,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; border: 1px solid rgba(57,255,20,0.3);">
+                            <div style="color: #888; font-size: 0.75rem; margin-bottom: 0.3rem;">Difficulty</div>
+                            <div style="color: #39FF14; font-weight: 600;">Intermediate</div>
+                        </div>
+                        <div style="background: rgba(57,255,20,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; border: 1px solid rgba(57,255,20,0.3);">
+                            <div style="color: #888; font-size: 0.75rem; margin-bottom: 0.3rem;">Duration</div>
+                            <div style="color: #39FF14; font-weight: 600;">2-3 Hours</div>
+                        </div>
+                        <div style="background: rgba(57,255,20,0.1); padding: 0.8rem 1.2rem; border-radius: 12px; border: 1px solid rgba(57,255,20,0.3);">
+                            <div style="color: #888; font-size: 0.75rem; margin-bottom: 0.3rem;">Category</div>
+                            <div style="color: #39FF14; font-weight: 600;">Development</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quest Tasks -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-tasks"></i> Quest Tasks</h3>
+                    </div>
+
+                    <!-- Task 1 - Completed -->
+                    <div class="quest-task completed" style="background: rgba(57,255,20,0.05); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; border-left: 3px solid #39FF14;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.8rem;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="color: #39FF14; font-size: 1.2rem;"><i class="fas fa-check-circle"></i></span>
+                                    <h4 style="font-size: 1rem; color: #39FF14;">Task 1: Follow @Beebrain123 on X</h4>
+                                </div>
+                                <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">Install Node.js, npm, and set up Hardhat for smart contract development.</p>
+                            </div>
+                            <span class="status-badge status-approved" style="margin-top: 0;">✓ Completed</span>
+                        </div>
+                        <div style="color: #666; font-size: 0.8rem;">
+                            <i class="fas fa-clock"></i> Completed 2 days ago
+                        </div>
+                    </div>
+
+                    <!-- Task 2 - Completed -->
+                    <div class="quest-task completed" style="background: rgba(57,255,20,0.05); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; border-left: 3px solid #39FF14;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.8rem;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="color: #39FF14; font-size: 1.2rem;"><i class="fas fa-check-circle"></i></span>
+                                    <h4 style="font-size: 1rem; color: #39FF14;">Task 2: Follow @Onboard3__ on X</h4>
+                                </div>
+                                <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">Create a simple storage contract that can set and get values.</p>
+                            </div>
+                            <span class="status-badge status-approved" style="margin-top: 0;">✓ Completed</span>
+                        </div>
+                        <div style="color: #666; font-size: 0.8rem;">
+                            <i class="fas fa-clock"></i> Completed 1 day ago
+                        </div>
+                    </div>
+
+                    <!-- Task 3 - Completed -->
+                    <div class="quest-task completed" style="background: rgba(57,255,20,0.05); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; border-left: 3px solid #39FF14;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.8rem;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="color: #39FF14; font-size: 1.2rem;"><i class="fas fa-check-circle"></i></span>
+                                    <h4 style="font-size: 1rem; color: #39FF14;">Task 3: Join Our Official Telegram</h4>
+                                </div>
+                                <p style="color: #888; font-size: 0.85rem; line-height: 1.5;">Deploy your contract to Sepolia testnet and verify it on Etherscan.</p>
+                            </div>
+                            <span class="status-badge status-approved" style="margin-top: 0;">✓ Completed</span>
+                        </div>
+                        <div style="color: #666; font-size: 0.8rem;">
+                            <i class="fas fa-clock"></i> Completed 6 hours ago
+                        </div>
+                    </div>
+
+                    <!-- Task 4 - In Progress -->
+                    <div class="quest-task active" style="background: rgba(255,255,255,0.05); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; border-left: 3px solid #FFC107;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.8rem;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="color: #FFC107; font-size: 1.2rem;"><i class="fas fa-play-circle"></i></span>
+                                    <h4 style="font-size: 1rem;">Task 4: Build a Frontend Interface</h4>
+                                </div>
+                                <p style="color: #888; font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">Create a React frontend that interacts with your deployed contract using ethers.js.</p>
+                            </div>
+                            <span class="status-badge status-active" style="margin-top: 0;">In Progress</span>
+                        </div>
+
+                        <!-- Task Action Form -->
+                        <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; margin-top: 1rem;">
+                            <form id="task4Form">
+                                <div class="form-group" style="margin-bottom: 0.8rem;">
+                                    <label>GitHub Repository URL *</label>
+                                    <input type="url" placeholder="https://github.com/yourusername/project" required>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0.8rem;">
+                                    <label>Live Demo URL *</label>
+                                    <input type="url" placeholder="https://your-dapp.vercel.app" required>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 1rem;">
+                                    <label>Additional Notes</label>
+                                    <textarea placeholder="Any challenges faced or additional features added..." rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                    <i class="fas fa-paper-plane"></i> Submit Task
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Task 5 - Locked -->
+                    <div class="quest-task locked" style="background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 12px; margin-bottom: 1rem; border-left: 3px solid #666; opacity: 0.6;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.8rem;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                                    <span style="color: #666; font-size: 1.2rem;"><i class="fas fa-lock"></i></span>
+                                    <h4 style="font-size: 1rem; color: #888;">Task 5: Write Unit Tests</h4>
+                                </div>
+                                <p style="color: #666; font-size: 0.85rem; line-height: 1.5;">Write comprehensive tests for your smart contract using Hardhat.</p>
+                            </div>
+                            <span class="status-badge" style="background: rgba(100,100,100,0.2); color: #666; margin-top: 0;">🔒 Locked</span>
+                        </div>
+                        <div style="background: rgba(255,193,7,0.1); padding: 0.6rem; border-radius: 8px; margin-top: 0.8rem;">
+                            <p style="color: #FFC107; font-size: 0.8rem;"><i class="fas fa-info-circle"></i> Complete Task 4 to unlock this task</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-book"></i> Learning Resources</h3>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="#" class="bounty-item" style="text-decoration: none; display: block;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <i class="fas fa-file-alt" style="color: #39FF14; font-size: 1.5rem;"></i>
+                                <div style="flex: 1;">
+                                    <div class="bounty-title">Solidity Documentation</div>
+                                    <p style="color: #888; font-size: 0.85rem; margin-top: 0.3rem;">Official Solidity language documentation</p>
+                                </div>
+                                <i class="fas fa-external-link-alt" style="color: #666;"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="bounty-item" style="text-decoration: none; display: block;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <i class="fas fa-video" style="color: #39FF14; font-size: 1.5rem;"></i>
+                                <div style="flex: 1;">
+                                    <div class="bounty-title">Smart Contract Tutorial Series</div>
+                                    <p style="color: #888; font-size: 0.85rem; margin-top: 0.3rem;">Video walkthrough of smart contract development</p>
+                                </div>
+                                <i class="fas fa-external-link-alt" style="color: #666;"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="bounty-item" style="text-decoration: none; display: block;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <i class="fas fa-code" style="color: #39FF14; font-size: 1.5rem;"></i>
+                                <div style="flex: 1;">
+                                    <div class="bounty-title">Example Code Repository</div>
+                                    <p style="color: #888; font-size: 0.85rem; margin-top: 0.3rem;">Reference implementation and code samples</p>
+                                </div>
+                                <i class="fas fa-external-link-alt" style="color: #666;"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quest Leaderboard -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-trophy"></i> Quest Leaderboard</h3>
+                        <span style="color: #888; font-size: 0.85rem;">Top builders on this quest</span>
+                    </div>
+
+                    <div class="leaderboard-item gold">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number">🥇</span>
+                            <div class="user-info">
+                                <h4>SolidityPro_0x7</h4>
+                                <p>Completed in 1.5 hours</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: #39FF14; font-weight: 700; font-size: 1.1rem;">5/5 ✓</div>
+                            <div style="color: #888; font-size: 0.75rem;">2 days ago</div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-item silver">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number">🥈</span>
+                            <div class="user-info">
+                                <h4>DevMaster_42</h4>
+                                <p>Completed in 2 hours</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: #39FF14; font-weight: 700; font-size: 1.1rem;">5/5 ✓</div>
+                            <div style="color: #888; font-size: 0.75rem;">3 days ago</div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-item bronze">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number">🥉</span>
+                            <div class="user-info">
+                                <h4>BlockchainWizard</h4>
+                                <p>Completed in 2.5 hours</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: #39FF14; font-weight: 700; font-size: 1.1rem;">5/5 ✓</div>
+                            <div style="color: #888; font-size: 0.75rem;">5 days ago</div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number" style="color: #888;">4</span>
+                            <div class="user-info">
+                                <h4>Web3Builder_X</h4>
+                                <p>Completed in 2.8 hours</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: #39FF14; font-weight: 700;">5/5 ✓</div>
+                            <div style="color: #888; font-size: 0.75rem;">1 week ago</div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">
+                            <span class="rank-number" style="color: #888;">5</span>
+                            <div class="user-info">
+                                <h4>CryptoNinja_99</h4>
+                                <p>Completed in 3 hours</p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="color: #39FF14; font-weight: 700;">5/5 ✓</div>
+                            <div style="color: #888; font-size: 0.75rem;">1 week ago</div>
+                        </div>
+                    </div>
+
+                    <!-- Current User Progress -->
+                    <div style="padding: 1rem; text-align: center; color: #888; border-top: 2px solid rgba(57,255,20,0.2); margin-top: 1rem; background: rgba(57,255,20,0.05); border-radius: 12px;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                            <div>
+                                <strong style="color: #39FF14; font-size: 1rem;">Your Progress:</strong>
+                                <span style="color: #fff; font-size: 1rem; margin-left: 0.5rem;">3/5 Tasks (60%)</span>
+                            </div>
+                            <div style="padding: 0 1rem; border-left: 1px solid rgba(57,255,20,0.3); border-right: 1px solid rgba(57,255,20,0.3);">
+                                <strong style="color: #FFC107;">Estimated Rank:</strong>
+                                <span style="color: #fff; margin-left: 0.5rem;">Top 20</span>
+                            </div>
+                            <div>
+                                <strong style="color: #888;">Time Spent:</strong>
+                                <span style="color: #fff; margin-left: 0.5rem;">1.5 hours</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #39FF14;">
+                            <i class="fas fa-fire"></i> Complete remaining tasks to join the leaderboard!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quest Statistics -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Quest Statistics</h3>
+                    </div>
+                    <div class="grid-3">
+                        <div style="text-align: center; padding: 1rem; background: rgba(57,255,20,0.05); border-radius: 12px; border: 1px solid rgba(57,255,20,0.2);">
+                            <div style="font-size: 2rem; color: #39FF14; font-weight: 700; margin-bottom: 0.5rem;">247</div>
+                            <div style="color: #888; font-size: 0.85rem;">Total Completions</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(57,255,20,0.05); border-radius: 12px; border: 1px solid rgba(57,255,20,0.2);">
+                            <div style="font-size: 2rem; color: #39FF14; font-weight: 700; margin-bottom: 0.5rem;">2.4h</div>
+                            <div style="color: #888; font-size: 0.85rem;">Average Time</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(57,255,20,0.05); border-radius: 12px; border: 1px solid rgba(57,255,20,0.2);">
+                            <div style="font-size: 2rem; color: #39FF14; font-weight: 700; margin-bottom: 0.5rem;">89%</div>
+                            <div style="color: #888; font-size: 0.85rem;">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Help & Support -->
+                <div class="card" style="background: linear-gradient(135deg, rgba(57,255,20,0.05) 0%, rgba(0,0,0,0.4) 100%);">
+                    <div style="text-align: center; padding: 1rem;">
+                        <i class="fas fa-question-circle" style="color: #39FF14; font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                        <h3 style="margin-bottom: 0.5rem;">Need Help?</h3>
+                        <p style="color: #888; margin-bottom: 1.5rem;">Join our Discord community for support and guidance</p>
+                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <button class="btn btn-secondary">
+                                <i class="fab fa-discord"></i> Join Discord
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-comments"></i> Ask Question
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Handle task submission
+        document.getElementById('task4Form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Task submitted successfully! Our team will review it within 24 hours.');
+            // Here you would typically send the data to your backend
+        });
+
+        // Animate progress bar on load
+        window.addEventListener('load', () => {
+            const progressBar = document.querySelector('.progress-bar');
+            if (progressBar) {
+                const width = progressBar.style.width;
+                progressBar.style.width = '0%';
+                setTimeout(() => {
+                    progressBar.style.width = width;
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>

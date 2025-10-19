@@ -3,722 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONBOARD3 - Start Your Web3 Journey</title>
+    <title>Learn - ONBOARD3</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .grid-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .glow-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #39FF14, transparent);
-            animation: lineGlow 3s ease-in-out infinite;
-        }
-
-        .glow-line:nth-child(1) { top: 20%; animation-delay: 0s; }
-        .glow-line:nth-child(2) { top: 50%; animation-delay: 1s; }
-        .glow-line:nth-child(3) { top: 80%; animation-delay: 2s; }
-
-        @keyframes lineGlow {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.8; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, #39FF14);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-subtext {
-            font-size: 1.25rem;
-            color: #b0b0b0;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 1s ease-out 0.4s backwards;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Space Grotesk', sans-serif;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #39FF14;
-            color: #0a0a0a;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 40px rgba(57, 255, 20, 0.6);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #39FF14;
-            color: #39FF14;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, #39FF14);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.15rem;
-            color: #b0b0b0;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Learning Tracks */
-        .tracks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .track-card {
-            background: linear-gradient(135deg, rgba(57, 255, 20, 0.05), rgba(10, 10, 10, 0.9));
-            border: 1px solid rgba(57, 255, 20, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .track-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .track-card:hover::before {
-            left: 100%;
-        }
-
-        .track-card:hover {
-            transform: translateY(-10px);
-            border-color: #39FF14;
-            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.2);
-        }
-
-        .track-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .track-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #39FF14;
-        }
-
-        .track-card p {
-            color: #b0b0b0;
-            margin-bottom: 1.5rem;
-        }
-
-        .track-btn {
-            background: transparent;
-            color: #39FF14;
-            border: 1px solid #39FF14;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .track-btn:hover {
-            background: #39FF14;
-            color: #0a0a0a;
-        }
-
-        /* Quests Grid */
-        .quests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .quest-card {
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid rgba(57, 255, 20, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .quest-card:hover {
-            border-color: #39FF14;
-            transform: translateX(5px);
-            box-shadow: -5px 5px 20px rgba(57, 255, 20, 0.15);
-        }
-
-        .quest-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        .quest-desc {
-            color: #888;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .quest-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .quest-xp {
-            color: #39FF14;
-            font-weight: 600;
-        }
-
-        .quest-btn {
-            background: transparent;
-            color: #39FF14;
-            border: 1px solid #39FF14;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .quest-btn:hover {
-            background: #39FF14;
-            color: #0a0a0a;
-        }
-
-        /* Progress Section */
-        .progress-container {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 3rem;
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid rgba(57, 255, 20, 0.2);
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .progress-bar-container {
-            width: 100%;
-            height: 40px;
-            background: rgba(10, 10, 10, 0.8);
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 2rem 0;
-            border: 1px solid rgba(57, 255, 20, 0.3);
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 60%;
-            background: linear-gradient(90deg, #39FF14, #28cc10);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 1rem;
-            font-weight: 700;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
-            animation: progressGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes progressGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(57, 255, 20, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(57, 255, 20, 0.8); }
-        }
-
-        /* Proof of Impact */
-        .proof-section {
-            text-align: center;
-            background: linear-gradient(135deg, rgba(57, 255, 20, 0.05), transparent);
-            padding: 5rem 2rem;
-            border-top: 1px solid rgba(57, 255, 20, 0.2);
-            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
-        }
-
-        .key-icon {
-            font-size: 5rem;
-            margin: 2rem 0;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Community Section */
-        .community-section {
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-
-        .network-visual {
-            width: 300px;
-            height: 300px;
-            margin: 3rem auto;
-            position: relative;
-        }
-
-        .node {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle, #39FF14, rgba(57, 255, 20, 0.2));
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-        .node:nth-child(2) { bottom: 0; left: 0; animation-delay: 0.3s; }
-        .node:nth-child(3) { bottom: 0; right: 0; animation-delay: 0.6s; }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 1; }
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 3rem 0 2rem;
-            border-top: 1px solid rgba(57, 255, 20, 0.2);
-            text-align: center;
-        }
-
-        .footer-tagline {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            color: #39FF14;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #b0b0b0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #39FF14;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(57, 255, 20, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #39FF14;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: #39FF14;
-            color: #0a0a0a;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
-        }
-
-        .footer-note {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .footer-note span {
-            color: #39FF14;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .section-title { font-size: 2rem; }
-            .btn-group { flex-direction: column; }
-            .tracks-grid, .quests-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="grid-bg"></div>
-        <div class="glow-line"></div>
-        <div class="glow-line"></div>
-        <div class="glow-line"></div>
-        <div class="container hero-content">
-            <h1>Learn Web3. Build Skills. Earn Access.</h1>
-            <p class="hero-subtext">Begin your Web3 journey with ONBOARD3. Complete simple quests, earn points, and move closer to unlocking your Access Code.</p>
-            <div class="btn-group">
-                <button class="btn btn-primary">Begin Learning</button>
-                <button class="btn btn-secondary">Back to Home</button>
+    <div class="grid-bg"></div>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h1>ONBOARD3</h1>
+                <p>Web3 Builder Hub</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Learning Tracks -->
-    <section id="tracks">
-        <div class="container">
-            <h2 class="section-title">Choose Your Path</h2>
-            <p class="section-subtitle">Pick a focus area and start your journey in Web3.</p>
-            
-            <div class="tracks-grid">
-                <div class="track-card">
-                    <div class="track-icon">👨‍💻</div>
-                    <h3>Developers</h3>
-                    <p>Learn smart contracts, testnets, and coding.</p>
-                    <button class="track-btn">Start Learning →</button>
-                </div>
-                
-                <div class="track-card">
-                    <div class="track-icon">🌐</div>
-                    <h3>Community Builders</h3>
-                    <p>Learn engagement, growth, and leadership.</p>
-                    <button class="track-btn">Start Learning →</button>
-                </div>
-                
-                <div class="track-card">
-                    <div class="track-icon">✍️</div>
-                    <h3>Content Creators</h3>
-                    <p>Learn storytelling, content, and influence.</p>
-                    <button class="track-btn">Start Learning →</button>
-                </div>
-                
-                <div class="track-card">
-                    <div class="track-icon">📈</div>
-                    <h3>Marketers</h3>
-                    <p>Learn strategy, campaigns, and brand growth.</p>
-                    <button class="track-btn">Start Learning →</button>
-                </div>
-                
-                <div class="track-card">
-                    <div class="track-icon">🤝</div>
-                    <h3>BD & Collab Managers</h3>
-                    <p>Learn networking, partnerships, and deal flow.</p>
-                    <button class="track-btn">Start Learning →</button>
-                </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="quests.html" class="menu-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Quests</span>
+                </a>
+                <!-- <a href="quest-leaderboard.html" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Quest Rank</span>
+                </a> -->
+                <a href="learn.html" class="menu-item active">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Learn</span>
+                </a>
+                <a href="bounties.html" class="menu-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Bounties</span>
+                </a>
+                <a href="bounty-leaderboard.html" class="menu-item">
+                    <i class="fas fa-medal"></i>
+                    <span>Bounty Rank</span>
+                </a>
+                <a href="events.html" class="menu-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Events</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="menu-item logout" onclick="handleLogout(event)">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>v1.0 — Powered by</p>
+                <p class="version">ONBOARD3</p>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- Beginner Quests -->
-    <section id="quests">
-        <div class="container">
-            <h2 class="section-title">Start with Simple Quests</h2>
-            <p class="section-subtitle">Complete beginner-friendly tasks to learn the basics of Web3.</p>
-            
-            <div class="quests-grid">
-                <div class="quest-card">
-                    <h4>Create Your First Wallet</h4>
-                    <p class="quest-desc">Set up a secure wallet and learn the basics of Web3 security.</p>
-                    <div class="quest-footer">
-                        <span class="quest-xp">+10 XP</span>
-                        <button class="quest-btn">Start Quest</button>
+        <main class="main-content">
+            <header class="header">
+                <div class="header-content">
+                    <div class="header-title">
+                        <h2>Learn & Apply 🎓</h2>
+                        <p>Apply for specialized courses and become a certified builder</p>
                     </div>
                 </div>
-                
-                <div class="quest-card">
-                    <h4>Explore a Blockchain Explorer</h4>
-                    <p class="quest-desc">Navigate through transactions and understand blockchain data.</p>
-                    <div class="quest-footer">
-                        <span class="quest-xp">+10 XP</span>
-                        <button class="quest-btn">Start Quest</button>
+            </header>
+
+            <div class="content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-graduation-cap"></i> Apply for Courses</h3>
+                    </div>
+                    <p style="color: #888; margin-bottom: 2rem;">Choose a specialization track and apply to become a certified ONBOARD3 builder</p>
+
+                    <form id="courseApplicationForm">
+                        <div class="form-group">
+                            <label>Select Course *</label>
+                            <select id="courseSelect" required>
+                                <option value="">-- Choose a course --</option>
+                                <option value="Content Creation">Content Creation</option>
+                                <option value="Community Management">Community Management</option>
+                                <option value="Smart Contract Development">Smart Contract Development</option>
+                                <option value="Frontend Development">Frontend Development</option>
+                                <option value="Marketing & Growth">Marketing & Growth</option>
+                                <option value="Product Design">Product Design</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Twitter/X Handle</label>
+                            <input type="text" id="twitter" placeholder="@yourusername">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Why do you want to join this course? *</label>
+                            <textarea id="motivation" placeholder="Tell us about your goals and what you hope to learn..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Previous Experience (if any)</label>
+                            <textarea id="experience" placeholder="Share any relevant experience or projects..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-list-check"></i> My Applications</h3>
+                    </div>
+                    <div class="bounty-item">
+                        <div class="bounty-header">
+                            <div>
+                                <div class="bounty-title">Content Creation</div>
+                                <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Applied: September 15, 2025</p>
+                            </div>
+                            <span class="status-badge status-approved">✓ Admitted</span>
+                        </div>
+                        <p style="color: #39FF14; font-size: 0.9rem; margin-top: 1rem;">🎉 Congratulations! Check your email for course details.</p>
+                    </div>
+                    <div class="bounty-item">
+                        <div class="bounty-header">
+                            <div>
+                                <div class="bounty-title">Community Management</div>
+                                <p style="color: #888; font-size: 0.85rem; margin-top: 0.5rem;">Applied: October 1, 2025</p>
+                            </div>
+                            <span class="status-badge status-pending">⏳ Pending</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="quest-card">
-                    <h4>Join a Web3 Community</h4>
-                    <p class="quest-desc">Connect with builders and start engaging in discussions.</p>
-                    <div class="quest-footer">
-                        <span class="quest-xp">+10 XP</span>
-                        <button class="quest-btn">Start Quest</button>
-                    </div>
-                </div>
-                
-                <div class="quest-card">
-                    <h4>Complete a Testnet Transaction</h4>
-                    <p class="quest-desc">Practice sending your first transaction on a test network.</p>
-                    <div class="quest-footer">
-                        <span class="quest-xp">+10 XP</span>
-                        <button class="quest-btn">Start Quest</button>
-                    </div>
-                </div>
-                
-                <div class="quest-card">
-                    <h4>Follow a Partner Project</h4>
-                    <p class="quest-desc">Stay updated with projects building the future of Web3.</p>
-                    <div class="quest-footer">
-                        <span class="quest-xp">+10 XP</span>
-                        <button class="quest-btn">Start Quest</button>
-                    </div>
-                </div>
-                
-                <div class="quest-card">
-                    <h4>Share What You've Learned</h4>
-                    <p class="quest-desc">Create content or help others on their Web3 journey.</p>
-                    <div class="quest-footer">
-                        <span class="quest-xp">+10 XP</span>
-                        <button class="quest-btn">Start Quest</button>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </main>
+    </div>
 
-    <!-- Learn to Earn -->
-    <section id="earn">
-        <div class="container">
-            <div class="progress-container">
-                <h2 class="section-title">Earn Points. Unlock Access.</h2>
-                <p>Every quest you complete earns points. Your consistency builds your "Proof of Impact." Once you reach the threshold, you'll receive your ONBOARD3 Access Code to join the private community.</p>
-                
-                <div class="progress-bar-container">
-                    <div class="progress-bar">60%</div>
-                </div>
-                
-                <button class="btn btn-primary">Track My Progress</button>
-            </div>
-        </div>
-    </section>
+    <script>// User data
+const userData = {
+    username: 'Builder_0x4A2',
+    isStudent: true,
+    usdcBalance: 450,
+    xp: 342,
+    questRank: 47,
+    bountyRank: 23,
+    courseApplications: [
+        { course: 'Content Creation', status: 'approved', appliedDate: '2025-09-15' },
+        { course: 'Community Management', status: 'pending', appliedDate: '2025-10-01' }
+    ]
+};
 
-    <!-- Proof of Impact -->
-    <section class="proof-section">
-        <div class="container">
-            <h2 class="section-title">Proof of Impact = Access.</h2>
-            <p class="section-subtitle">Your access isn't bought — it's earned. Each learner who contributes, shares, or helps others earns credibility. ONBOARD3 Students are verified builders.</p>
-            
-            <div class="key-icon">🔑</div>
-            
-            <button class="btn btn-primary">Learn How to Earn Code →</button>
-        </div>
-    </section>
+// Set active menu item based on current page
+function setActiveMenuItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    menuItems.forEach(item => {
+        const href = item.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
 
-    <!-- Community -->
-    <section class="community-section">
-        <div class="container">
-            <h2 class="section-title">Take the Next Step.</h2>
-            <p class="section-subtitle">You're just one Access Code away from entering the private ONBOARD3 Community. Inside you'll find mentorship, bounties, and job opportunities.</p>
-            
-            <div class="network-visual">
-                <div class="node"></div>
-                <div class="node"></div>
-                <div class="node"></div>
-            </div>
-            
-            <div class="btn-group">
-                <button class="btn btn-primary">Apply for Access Code</button>
-                <button class="btn btn-secondary">Continue Learning</button>
-            </div>
-        </div>
-    </section>
+// Animate progress bars
+function animateProgressBars() {
+    const progressBars = document.querySelectorAll('.progress-bar, .quest-progress-fill');
+    progressBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 100);
+    });
+}
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-tagline">Onboard. Educate. Build.</div>
-            
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">Community</a>
-                <a href="#">Partner</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact</a>
-            </div>
-            
-            <div class="social-icons">
-                <a href="#" class="social-icon">𝕏</a>
-                <a href="#" class="social-icon">L</a>
-                <a href="#" class="social-icon">D</a>
-                <a href="#" class="social-icon">T</a>
-            </div>
-            
-            <p class="footer-note">Powered by <span>ONBOARD3</span> — Building the Next Generation of Web3 Creators.</p>
-        </div>
-    </footer>
+// Handle logout
+function handleLogout(event) {
+    event.preventDefault();
+    if (confirm('Are you sure you want to logout?')) {
+        alert('Logging out...');
+        // Add logout logic here
+    }
+}
 
-    <script>
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+// Modal functions
+function openBountyModal(title, reward) {
+    const modal = document.getElementById('bountyModal');
+    if (modal) {
+        document.getElementById('bountyTitle').value = title + ' - ' + reward + ' USDC';
+        modal.classList.add('active');
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('bountyModal');
+    if (modal) {
+        modal.classList.remove('active');
+        const form = document.getElementById('bountySubmissionForm');
+        if (form) form.reset();
+    }
+}
+
+// Initialize page
+window.addEventListener('load', () => {
+    setActiveMenuItem();
+    animateProgressBars();
+    attachFormListeners();
+    
+    // Close modal on background click
+    const modal = document.getElementById('bountyModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
+    }
+});
 
-        // Button interactions
-        document.querySelectorAll('.btn, .track-btn, .quest-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
+// Attach form listeners
+function attachFormListeners() {
+    // Course application form
+    const courseForm = document.getElementById('courseApplicationForm');
+    if (courseForm) {
+        courseForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const course = document.getElementById('courseSelect').value;
+            alert(`Application submitted for ${course}! You'll receive a response within 3-5 business days.`);
+            this.reset();
         });
+    }
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.track-card, .quest-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+    // Bounty submission form
+    const bountyForm = document.getElementById('bountySubmissionForm');
+    if (bountyForm) {
+        bountyForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Bounty submission received! We\'ll review it and get back to you soon.');
+            closeModal();
         });
-    </script>
+    }
+}</script>
 </body>
 </html>
